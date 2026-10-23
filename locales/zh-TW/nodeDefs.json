@@ -2,62 +2,503 @@
   "LingKeImageGen": {
     "display_name": "靈客AI 生圖",
     "inputs": {
-      "model": { "name": "模型" },
-      "prompt": { "name": "提示詞" },
-      "params_json": { "name": "參數JSON" },
-      "seed": { "name": "種子" },
-      "images": { "name": "參考圖" },
-      "images_param": { "name": "參考圖參數名" }
+      "model": {
+        "name": "模型"
+      },
+      "prompt": {
+        "name": "提示詞"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "images": {
+        "name": "參考圖"
+      },
+      "images_param": {
+        "name": "參考圖參數名"
+      }
     },
-    "outputs": { "0": { "name": "圖像" }, "1": { "name": "結果網址" }, "2": { "name": "任務ID" } }
+    "outputs": {
+      "0": {
+        "name": "圖像"
+      },
+      "1": {
+        "name": "結果網址"
+      },
+      "2": {
+        "name": "任務ID"
+      }
+    }
   },
   "LingKeVideoGen": {
     "display_name": "靈客AI 生影片",
     "inputs": {
-      "model": { "name": "模型" },
-      "prompt": { "name": "提示詞" },
-      "params_json": { "name": "參數JSON" },
-      "seed": { "name": "種子" },
-      "image": { "name": "首幀/參考圖" },
-      "image_param": { "name": "首幀參數名" },
-      "end_image": { "name": "尾幀" },
-      "end_image_param": { "name": "尾幀參數名" }
+      "model": {
+        "name": "模型"
+      },
+      "prompt": {
+        "name": "提示詞"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "image": {
+        "name": "首幀/參考圖"
+      },
+      "image_param": {
+        "name": "首幀參數名"
+      },
+      "end_image": {
+        "name": "尾幀"
+      },
+      "end_image_param": {
+        "name": "尾幀參數名"
+      }
     },
-    "outputs": { "0": { "name": "影片" }, "1": { "name": "結果網址" }, "2": { "name": "任務ID" } }
+    "outputs": {
+      "0": {
+        "name": "影片"
+      },
+      "1": {
+        "name": "結果網址"
+      },
+      "2": {
+        "name": "任務ID"
+      }
+    }
   },
   "LingKeAudioGen": {
     "display_name": "靈客AI 生音訊",
     "inputs": {
-      "model": { "name": "模型" },
-      "prompt": { "name": "提示詞" },
-      "params_json": { "name": "參數JSON" },
-      "seed": { "name": "種子" },
-      "audio": { "name": "參考音訊" },
-      "audio_param": { "name": "參考音訊參數名" }
+      "model": {
+        "name": "模型"
+      },
+      "prompt": {
+        "name": "提示詞"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "audio": {
+        "name": "參考音訊"
+      },
+      "audio_param": {
+        "name": "參考音訊參數名"
+      }
     },
-    "outputs": { "0": { "name": "音訊" }, "1": { "name": "結果網址" }, "2": { "name": "任務ID" } }
+    "outputs": {
+      "0": {
+        "name": "音訊"
+      },
+      "1": {
+        "name": "結果網址"
+      },
+      "2": {
+        "name": "任務ID"
+      }
+    }
   },
   "LingKeChat": {
     "display_name": "靈客AI 對話模型",
     "inputs": {
-      "model": { "name": "模型" },
-      "system": { "name": "系統提示詞" },
-      "prompt": { "name": "提示詞" },
-      "seed": { "name": "種子" }
+      "model": {
+        "name": "模型"
+      },
+      "system": {
+        "name": "系統提示詞"
+      },
+      "prompt": {
+        "name": "提示詞"
+      },
+      "seed": {
+        "name": "種子"
+      }
     },
-    "outputs": { "0": { "name": "文字" } }
+    "outputs": {
+      "0": {
+        "name": "文字"
+      }
+    }
   },
   "LingKeModelParams": {
     "display_name": "靈客AI 模型參數",
     "inputs": {
-      "media_type": { "name": "類型" },
-      "model": { "name": "模型名" }
+      "media_type": {
+        "name": "類型"
+      },
+      "model": {
+        "name": "模型名"
+      }
     },
-    "outputs": { "0": { "name": "參數說明" } }
+    "outputs": {
+      "0": {
+        "name": "參數說明"
+      }
+    }
   },
   "LingKeBalance": {
     "display_name": "靈客AI 餘額",
-    "inputs": { "seed": { "name": "種子" } },
-    "outputs": { "0": { "name": "餘額" } }
+    "inputs": {
+      "seed": {
+        "name": "種子"
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "餘額"
+      }
+    }
+  },
+  "LingKe_tt_image_2_5": {
+    "display_name": "靈客AI · TT Image 2.5",
+    "inputs": {
+      "prompt": {
+        "name": "提示詞"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "images": {
+        "name": "参考图片"
+      },
+      "version": {
+        "name": "模型版本"
+      },
+      "aspect_ratio": {
+        "name": "图片比例"
+      },
+      "resolution": {
+        "name": "分辨率"
+      },
+      "quality": {
+        "name": "画质"
+      },
+      "background": {
+        "name": "透明背景"
+      },
+      "size": {
+        "name": "自定义尺寸"
+      }
+    }
+  },
+  "LingKe_banana_2_1": {
+    "display_name": "靈客AI · 纳米香蕉 2.1 按次",
+    "inputs": {
+      "prompt": {
+        "name": "提示詞"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "images": {
+        "name": "参考图片"
+      },
+      "aspectRatio": {
+        "name": "图片比例"
+      },
+      "imageSize": {
+        "name": "分辨率"
+      },
+      "web_search": {
+        "name": "联网搜索"
+      },
+      "thinkingLevel": {
+        "name": "思考等级"
+      }
+    }
+  },
+  "LingKe_tt_image_2": {
+    "display_name": "靈客AI · TT Image 2",
+    "inputs": {
+      "prompt": {
+        "name": "提示詞"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "images": {
+        "name": "参考图片"
+      },
+      "size": {
+        "name": "图片比例"
+      },
+      "quality": {
+        "name": "图片质量"
+      }
+    }
+  },
+  "LingKe_seedance_2_0_anci": {
+    "display_name": "靈客AI · SD 2.0 按次",
+    "inputs": {
+      "prompt": {
+        "name": "提示詞"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "mode": {
+        "name": "生成模式"
+      },
+      "version": {
+        "name": "速度版本"
+      },
+      "duration": {
+        "name": "视频时长"
+      },
+      "aspect_ratio": {
+        "name": "宽高比"
+      },
+      "resolution": {
+        "name": "视频分辨率"
+      },
+      "images": {
+        "name": "参考图片"
+      }
+    }
+  },
+  "LingKe_seedance_2_5_guanfang_anmiao": {
+    "display_name": "靈客AI · SD 2.5 满血版 按秒",
+    "inputs": {
+      "prompt": {
+        "name": "提示詞"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "mode": {
+        "name": "生成模式"
+      },
+      "_quan_neng_mode": {
+        "name": "参考方式"
+      },
+      "duration": {
+        "name": "视频时长"
+      },
+      "aspect_ratio": {
+        "name": "宽高比"
+      },
+      "resolution": {
+        "name": "视频分辨率"
+      },
+      "images": {
+        "name": "首尾帧"
+      },
+      "image_url": {
+        "name": "参考图片"
+      },
+      "video_url": {
+        "name": "参考视频"
+      },
+      "audio_url": {
+        "name": "参考音频"
+      },
+      "web_search": {
+        "name": "联网搜索"
+      }
+    }
+  },
+  "LingKe_gk_video_3_5": {
+    "display_name": "靈客AI · GK-video-3.5",
+    "inputs": {
+      "prompt": {
+        "name": "提示詞"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "images": {
+        "name": "首帧参考图"
+      },
+      "aspect_ratio": {
+        "name": "画面比例"
+      },
+      "resolution": {
+        "name": "画质"
+      },
+      "duration": {
+        "name": "视频时长"
+      }
+    }
+  },
+  "LingKe_viduq4_preview": {
+    "display_name": "靈客AI · Vidu Q4 Preview",
+    "inputs": {
+      "prompt": {
+        "name": "提示詞"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "mode": {
+        "name": "生成模式"
+      },
+      "images": {
+        "name": "首帧参考图"
+      },
+      "image_url": {
+        "name": "参考图片"
+      },
+      "audio_url": {
+        "name": "参考音频"
+      },
+      "resolution": {
+        "name": "分辨率"
+      },
+      "duration": {
+        "name": "时长"
+      },
+      "aspect_ratio": {
+        "name": "宽高比"
+      }
+    }
+  },
+  "LingKe_minimax_h3": {
+    "display_name": "靈客AI · MiniMax H3",
+    "inputs": {
+      "prompt": {
+        "name": "提示詞"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "mode": {
+        "name": "生成模式"
+      },
+      "images": {
+        "name": "首尾帧"
+      },
+      "image_url": {
+        "name": "参考图片"
+      },
+      "video_url": {
+        "name": "参考视频"
+      },
+      "audio_url": {
+        "name": "参考音频"
+      },
+      "duration": {
+        "name": "视频时长"
+      },
+      "aspect_ratio": {
+        "name": "宽高比"
+      },
+      "resolution": {
+        "name": "视频分辨率"
+      }
+    }
+  },
+  "LingKe_suno_v6": {
+    "display_name": "靈客AI · Suno 音乐生成 6",
+    "inputs": {
+      "prompt": {
+        "name": "提示詞"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "mv": {
+        "name": "模型版本"
+      },
+      "lyrics": {
+        "name": "完整歌词"
+      },
+      "make_instrumental": {
+        "name": "生成模式"
+      },
+      "vocal_gender": {
+        "name": "声音性别"
+      }
+    }
+  },
+  "LingKe_doubao_tts_2_0": {
+    "display_name": "靈客AI · 豆包 语音合成 2.0",
+    "inputs": {
+      "prompt": {
+        "name": "提示詞"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "voice_id": {
+        "name": "音色"
+      },
+      "speech_rate": {
+        "name": "语速"
+      },
+      "emotion": {
+        "name": "情感"
+      },
+      "emotion_scale": {
+        "name": "情绪强度"
+      },
+      "format": {
+        "name": "音频格式"
+      }
+    }
+  },
+  "LingKe_music_2_5": {
+    "display_name": "靈客AI · 海螺 音乐生成 2.5+",
+    "inputs": {
+      "prompt": {
+        "name": "提示詞"
+      },
+      "seed": {
+        "name": "種子"
+      },
+      "params_json": {
+        "name": "參數JSON"
+      },
+      "lyrics": {
+        "name": "歌词"
+      },
+      "is_instrumental": {
+        "name": "生成模式"
+      },
+      "sample_rate": {
+        "name": "采样率"
+      },
+      "bitrate": {
+        "name": "比特率"
+      }
+    }
   }
 }

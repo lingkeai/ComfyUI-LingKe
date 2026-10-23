@@ -8,7 +8,7 @@ import numpy as np
 import torch
 from PIL import Image, ImageOps
 
-from .lingke_client import LingKeError
+from .lingke_client import LingKeError, log
 
 # 开放 API 内联 base64 上限：单文件解码后 ≤10MB，单次请求合计 ≤30MB
 SINGLE_LIMIT = 9 * 1024 * 1024
@@ -38,15 +38,47 @@ def image_tensor_to_data_urls(image):
     return urls
 
 
+def _encode_mp3(wav, sample_rate):
+    import av
+
+    buf = io.BytesIO()
+    layout = "mono" if wav.shape[0] == 1 else "stereo"
+    data = wav[:2] if wav.shape[0] > 2 else wav
+    with av.open(buf, mode="w", format="mp3") as out:
+        stream = out.add_stream("libmp3lame", rate=sample_rate, layout=layout)
+        stream.bit_rate = 192000
+        frame = av.AudioFrame.from_ndarray(np.ascontiguousarray(data.astype(np.float32)), format="fltp", layout=layout)
+        frame.sample_rate = sample_rate
+        for packet in stream.encode(frame):
+            out.mux(packet)
+        for packet in stream.encode(None):
+            out.mux(packet)
+    return buf.getvalue()
+
+
 def audio_to_data_url(audio):
-    """AUDIO {'waveform': [B,C,T], 'sample_rate'} → 16-bit WAV data URL（取第一条）。"""
+    """AUDIO {'waveform': [B,C,T], 'sample_rate'} → data URL（取第一条）。
+
+    优先 mp3：部分模型（如 Vidu）参考音频只收 mp3，体积也远小于 WAV；编码器不可用时退回 WAV。
+    """
     wav = audio["waveform"][0].cpu().clamp(-1, 1).numpy()
+    sr = int(audio["sample_rate"])
+    try:
+        raw = _encode_mp3(wav, sr)
+        if raw:
+            if len(raw) > SINGLE_LIMIT:
+                raise LingKeError("Input audio too large (>9MB mp3) / 输入音频过大，请截短后再传")
+            return _data_url("audio/mpeg", raw)
+    except LingKeError:
+        raise
+    except Exception as e:
+        log(f"mp3 encode unavailable, fallback to WAV: {e}")
     pcm = (wav.T * 32767.0).astype("<i2")
     buf = io.BytesIO()
     with wave.open(buf, "wb") as w:
         w.setnchannels(wav.shape[0])
         w.setsampwidth(2)
-        w.setframerate(int(audio["sample_rate"]))
+        w.setframerate(sr)
         w.writeframes(pcm.tobytes())
     raw = buf.getvalue()
     if len(raw) > SINGLE_LIMIT:

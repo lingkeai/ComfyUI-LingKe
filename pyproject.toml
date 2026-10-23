@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-lingke"
 description = "LingKe AI (灵客AI) API nodes: call cloud image / video / audio / chat models directly from ComfyUI workflows, no GPU required."
-version = "0.1.0"
+version = "0.2.0"
 license = { file = "LICENSE" }
 dependencies = []
 

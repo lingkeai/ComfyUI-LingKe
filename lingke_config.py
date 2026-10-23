@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 
 PACK_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -19,7 +20,7 @@ def load_config():
             with open(CONFIG_PATH, "r", encoding="utf-8") as f:
                 cfg = json.load(f) or {}
         except Exception as e:
-            print(f"[LingKe] config.json 解析失败，已忽略: {e}")
+            logging.getLogger("LingKe").warning(f"[LingKe] config.json 解析失败，已忽略 / invalid config.json ignored: {e}")
 
     api_key = os.environ.get("LINGKE_API_KEY") or cfg.get("api_key") or ""
     base_url = os.environ.get("LINGKE_BASE_URL") or cfg.get("base_url") or DEFAULT_BASE_URL

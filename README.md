@@ -6,6 +6,14 @@ LingKe AI (灵客AI) API nodes for ComfyUI — call cloud image / video / audio 
 
 ## Nodes / 节点
 
+**Dedicated nodes for popular models / 热门模型专属节点** (`LingKe AI/image|video|audio`)
+
+TT Image 2.5 / 2, Nano Banana 2.1, SD 2.0 / 2.5, GK-video-3.5, Vidu Q4, MiniMax H3, Suno v6, Doubao TTS 2.0, MiniMax Music 2.5+.
+Every param is a dropdown or text box; first/last frames, reference images and reference audio are sockets. Leave a dropdown on `default` to use the model's own default.
+参数都做成了下拉框 / 输入框，首尾帧、参考图、参考音频直接连线；下拉保持 `default` 即按模型默认值。
+
+**Generic nodes / 通用节点** — any listed model:
+
 | Node | Output | 说明 |
 |---|---|---|
 | LingKe AI Image Generation | IMAGE | 文生图 / 图生图，参考图支持批次多张 |
@@ -15,11 +23,14 @@ LingKe AI (灵客AI) API nodes for ComfyUI — call cloud image / video / audio 
 | LingKe AI Model Params | STRING | 查看某个模型可填的参数，用于写 params_json |
 | LingKe AI Balance | STRING | 查看余额 |
 
+Each generation node shows an **estimated price** under it as you change params, and the **task ID and actual charge** after it runs.
+生成节点下方会随参数实时显示**预估价格**，跑完显示**任务号与实际扣费**。
+
 The model dropdown is fetched from the API (cached 6h, delete `models_cache.json` and restart to refresh).
 模型下拉清单从接口拉取并缓存 6 小时，删除 `models_cache.json` 后重启即可刷新。
 
-A ready-to-run example is in `example_workflows/` (also shown in ComfyUI's template browser).
-`example_workflows/` 里有可直接运行的示例工作流（ComfyUI 模板浏览器里也能看到）。
+Ready-to-run examples are in `example_workflows/` (also in ComfyUI's template browser): prompt expansion → image → video, and first + last frame video.
+`example_workflows/` 里有可直接运行的示例（ComfyUI 模板浏览器里也能看到）：扩写 → 生图 → 生视频、首尾帧视频。
 
 ## Install / 安装
 
@@ -27,7 +38,7 @@ A ready-to-run example is in `example_workflows/` (also shown in ComfyUI's templ
    ```
    git clone https://github.com/lingkeai/ComfyUI-LingKe
    ```
-2. Create an API key at [lingkeai.ai](https://lingkeai.ai) (开放 API). Copy `config.example.json` to `config.json` and fill it in. / 在 lingkeai.ai 的「开放 API」创建 Key，复制 `config.example.json` 为 `config.json` 并填入：
+2. Create an API key at [lingkeai.ai → API Keys](https://lingkeai.ai/api/console/keys). Copy `config.example.json` to `config.json` and fill it in. / 在 lingkeai.ai 的「开放 API」创建 Key，复制 `config.example.json` 为 `config.json` 并填入：
    ```json
    { "api_key": "sk-xxxx" }
    ```

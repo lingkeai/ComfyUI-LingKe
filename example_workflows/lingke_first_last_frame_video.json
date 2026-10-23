@@ -1,0 +1,571 @@
+{
+ "id": "6f1c2a7e-4b1d-4c55-9a51-1a2b3c4d5e02",
+ "revision": 0,
+ "last_node_id": 6,
+ "last_link_id": 7,
+ "nodes": [
+  {
+   "id": 1,
+   "type": "LingKe_tt_image_2",
+   "pos": [
+    100,
+    100
+   ],
+   "size": [
+    400,
+    300
+   ],
+   "flags": {},
+   "order": 0,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "参考图片",
+     "name": "images",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": null
+    },
+    {
+     "localized_name": "提示词",
+     "name": "prompt",
+     "type": "STRING",
+     "widget": {
+      "name": "prompt"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "图片比例",
+     "name": "size",
+     "type": "COMBO",
+     "widget": {
+      "name": "size"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "图片质量",
+     "name": "quality",
+     "type": "COMBO",
+     "widget": {
+      "name": "quality"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "种子",
+     "name": "seed",
+     "type": "INT",
+     "widget": {
+      "name": "seed"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "参数JSON",
+     "name": "params_json",
+     "shape": 7,
+     "type": "STRING",
+     "widget": {
+      "name": "params_json"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "image",
+     "name": "image",
+     "type": "IMAGE",
+     "links": [
+      5
+     ]
+    },
+    {
+     "localized_name": "urls",
+     "name": "urls",
+     "type": "STRING",
+     "links": null
+    },
+    {
+     "localized_name": "task_id",
+     "name": "task_id",
+     "type": "STRING",
+     "links": null
+    }
+   ],
+   "title": "First frame / 首帧",
+   "properties": {
+    "Node name for S&R": "LingKe_tt_image_2"
+   },
+   "widgets_values": [
+    "清晨的海边灯塔，写实摄影",
+    "1024x1024",
+    "low",
+    1,
+    "fixed",
+    "{}"
+   ],
+   "widgets_values_named": {
+    "prompt": "清晨的海边灯塔，写实摄影",
+    "size": "1024x1024",
+    "quality": "low",
+    "seed": 1,
+    "control_after_generate": "fixed",
+    "params_json": "{}"
+   }
+  },
+  {
+   "id": 2,
+   "type": "LingKe_tt_image_2",
+   "pos": [
+    100,
+    460
+   ],
+   "size": [
+    400,
+    300
+   ],
+   "flags": {},
+   "order": 1,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "参考图片",
+     "name": "images",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": null
+    },
+    {
+     "localized_name": "提示词",
+     "name": "prompt",
+     "type": "STRING",
+     "widget": {
+      "name": "prompt"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "图片比例",
+     "name": "size",
+     "type": "COMBO",
+     "widget": {
+      "name": "size"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "图片质量",
+     "name": "quality",
+     "type": "COMBO",
+     "widget": {
+      "name": "quality"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "种子",
+     "name": "seed",
+     "type": "INT",
+     "widget": {
+      "name": "seed"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "参数JSON",
+     "name": "params_json",
+     "shape": 7,
+     "type": "STRING",
+     "widget": {
+      "name": "params_json"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "image",
+     "name": "image",
+     "type": "IMAGE",
+     "links": [
+      6
+     ]
+    },
+    {
+     "localized_name": "urls",
+     "name": "urls",
+     "type": "STRING",
+     "links": null
+    },
+    {
+     "localized_name": "task_id",
+     "name": "task_id",
+     "type": "STRING",
+     "links": null
+    }
+   ],
+   "title": "Last frame / 尾帧",
+   "properties": {
+    "Node name for S&R": "LingKe_tt_image_2"
+   },
+   "widgets_values": [
+    "黄昏的海边灯塔，晚霞满天，写实摄影",
+    "1024x1024",
+    "low",
+    1,
+    "fixed",
+    "{}"
+   ],
+   "widgets_values_named": {
+    "prompt": "黄昏的海边灯塔，晚霞满天，写实摄影",
+    "size": "1024x1024",
+    "quality": "low",
+    "seed": 1,
+    "control_after_generate": "fixed",
+    "params_json": "{}"
+   }
+  },
+  {
+   "id": 4,
+   "type": "LingKe_minimax_h3",
+   "pos": [
+    840,
+    200
+   ],
+   "size": [
+    420,
+    400
+   ],
+   "flags": {},
+   "order": 3,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "首尾帧",
+     "name": "images",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 7
+    },
+    {
+     "localized_name": "参考图片",
+     "name": "image_url",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": null
+    },
+    {
+     "localized_name": "参考音频",
+     "name": "audio_url",
+     "shape": 7,
+     "type": "AUDIO",
+     "link": null
+    },
+    {
+     "localized_name": "提示词",
+     "name": "prompt",
+     "type": "STRING",
+     "widget": {
+      "name": "prompt"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "生成模式",
+     "name": "mode",
+     "type": "COMBO",
+     "widget": {
+      "name": "mode"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "视频时长",
+     "name": "duration",
+     "type": "COMBO",
+     "widget": {
+      "name": "duration"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "宽高比",
+     "name": "aspect_ratio",
+     "type": "COMBO",
+     "widget": {
+      "name": "aspect_ratio"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "视频分辨率",
+     "name": "resolution",
+     "type": "COMBO",
+     "widget": {
+      "name": "resolution"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "种子",
+     "name": "seed",
+     "type": "INT",
+     "widget": {
+      "name": "seed"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "参考视频",
+     "name": "video_url",
+     "shape": 7,
+     "type": "STRING",
+     "widget": {
+      "name": "video_url"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "参数JSON",
+     "name": "params_json",
+     "shape": 7,
+     "type": "STRING",
+     "widget": {
+      "name": "params_json"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "video",
+     "name": "video",
+     "type": "VIDEO",
+     "links": [
+      4
+     ]
+    },
+    {
+     "localized_name": "url",
+     "name": "url",
+     "type": "STRING",
+     "links": null
+    },
+    {
+     "localized_name": "task_id",
+     "name": "task_id",
+     "type": "STRING",
+     "links": null
+    }
+   ],
+   "title": "First + last frame video / 首尾帧视频",
+   "properties": {
+    "Node name for S&R": "LingKe_minimax_h3"
+   },
+   "widgets_values": [
+    "镜头缓慢推进，天色从清晨过渡到黄昏",
+    "default",
+    "4",
+    "default",
+    "768P",
+    1,
+    "fixed",
+    "",
+    "{}"
+   ],
+   "widgets_values_named": {
+    "prompt": "镜头缓慢推进，天色从清晨过渡到黄昏",
+    "mode": "default",
+    "duration": "4",
+    "aspect_ratio": "default",
+    "resolution": "768P",
+    "seed": 1,
+    "control_after_generate": "fixed",
+    "video_url": "",
+    "params_json": "{}"
+   }
+  },
+  {
+   "id": 5,
+   "type": "SaveVideo",
+   "pos": [
+    1320,
+    200
+   ],
+   "size": [
+    320,
+    420
+   ],
+   "flags": {},
+   "order": 4,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "视频",
+     "name": "video",
+     "type": "VIDEO",
+     "link": 4
+    },
+    {
+     "localized_name": "文件名前缀",
+     "name": "filename_prefix",
+     "type": "STRING",
+     "widget": {
+      "name": "filename_prefix"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "格式",
+     "name": "format",
+     "type": "COMFY_DYNAMICCOMBO_V3",
+     "widget": {
+      "name": "format"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "编解码器",
+     "name": "format.codec",
+     "type": "COMFY_DYNAMICCOMBO_V3",
+     "widget": {
+      "name": "format.codec"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "编码器",
+     "name": "codec",
+     "shape": 7,
+     "type": "COMFY_DYNAMICCOMBO_V3",
+     "widget": {
+      "name": "codec"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "video",
+     "name": "video",
+     "type": "VIDEO",
+     "links": null
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "SaveVideo"
+   },
+   "widgets_values": [
+    "lingke_first_last",
+    "auto",
+    "auto",
+    "auto"
+   ],
+   "widgets_values_named": {
+    "filename_prefix": "lingke_first_last",
+    "format": "auto",
+    "format.codec": "auto",
+    "codec": "auto"
+   }
+  },
+  {
+   "id": 6,
+   "type": "BatchImagesNode",
+   "pos": [
+    560,
+    300
+   ],
+   "size": [
+    140,
+    66
+   ],
+   "flags": {},
+   "order": 2,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "image0",
+     "name": "images.image0",
+     "type": "IMAGE",
+     "link": 5
+    },
+    {
+     "localized_name": "image1",
+     "name": "images.image1",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 6
+    },
+    {
+     "localized_name": "image2",
+     "name": "images.image2",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "图像",
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      7
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "BatchImagesNode"
+   }
+  }
+ ],
+ "links": [
+  [
+   4,
+   4,
+   0,
+   5,
+   0,
+   "VIDEO"
+  ],
+  [
+   5,
+   1,
+   0,
+   6,
+   0,
+   "IMAGE"
+  ],
+  [
+   6,
+   2,
+   0,
+   6,
+   1,
+   "IMAGE"
+  ],
+  [
+   7,
+   6,
+   0,
+   4,
+   0,
+   "IMAGE"
+  ]
+ ],
+ "groups": [],
+ "config": {},
+ "extra": {
+  "ds": {
+   "scale": 0.8,
+   "offset": [
+    0,
+    0
+   ]
+  }
+ },
+ "version": 0.4
+}

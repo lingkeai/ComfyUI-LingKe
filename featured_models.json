@@ -1,0 +1,2061 @@
+{
+ "tt-image-2.5": {
+  "name": "tt-image-2.5",
+  "display_name": "TT Image 2.5",
+  "type": "image",
+  "description": "新一代图像模型 2.5 代，按次计费。标准版 / 增强版两档可选，比例与分辨率分开控制（1K/2K/4K，最高 3840×2160），画质新增超高与极致两档，支持透明背景输出、多图参考融合与提示词引导的局部编辑。文字渲染、复杂排版与人物细节一致性全面升级，适合海报、电商主图、社媒配图等生产级素材。",
+  "input_hint": "推荐用《主体 + 场景 + 风格 + 光线 + 氛围》的结构写提示词；可上传 1~16 张参考图用于图生图 / 局部编辑 / 多图融合。标准版性价比高、出图快，增强版细节更足；比例与分辨率分开选，比例选「自适应」时由模型按提示词自行决定画幅。画质档位越高、分辨率越大，等待时间越长。",
+  "tags": [
+   "文生图",
+   "图生图",
+   "透明背景"
+  ],
+  "params": [
+   {
+    "name": "prompt",
+    "label": "提示词",
+    "type": "textarea",
+    "required": true,
+    "description": "描述你想要生成或修改的图片内容，支持中英文，越具体越好。"
+   },
+   {
+    "name": "images",
+    "label": "参考图片",
+    "type": "upload",
+    "required": false,
+    "description": "上传 1~16 张参考图用于图生图、多图融合或局部编辑；不传即为纯文生图。部分渠道最多接收 8 张，超出时会自动改派其它渠道。"
+   },
+   {
+    "name": "version",
+    "label": "模型版本",
+    "type": "select",
+    "required": false,
+    "description": "标准版出图快、性价比高；增强版细节更丰富、复杂构图更稳，部分渠道增强版价格更高。",
+    "options": [
+     {
+      "value": "flare",
+      "label": "标准版",
+      "description": "标准版：出图速度快、性价比高，日常出图与批量生产首选。"
+     },
+     {
+      "value": "sunburst",
+      "label": "增强版",
+      "description": "增强版：细节更丰富、复杂构图与文字排版更稳，适合追求精细成品的场景；部分渠道价格更高。"
+     }
+    ]
+   },
+   {
+    "name": "aspect_ratio",
+    "label": "图片比例",
+    "type": "select",
+    "required": false,
+    "description": "生成图片的画幅比例。选「自适应」时由模型按提示词或参考图自行决定画幅，此时分辨率也会跟着变为自适应。",
+    "options": [
+     {
+      "value": "auto",
+      "label": "自适应",
+      "description": "由模型根据提示词或参考图自动决定画幅（选中后分辨率也会变为自适应）。"
+     },
+     {
+      "value": "1:1",
+      "label": "1:1 正方形",
+      "description": "正方形，适合头像、电商主图、社交媒体信息流配图。"
+     },
+     {
+      "value": "16:9",
+      "label": "16:9 横屏",
+      "description": "横屏宽屏比例，适合视频封面、网页横幅、电脑壁纸。"
+     },
+     {
+      "value": "9:16",
+      "label": "9:16 竖屏",
+      "description": "手机竖屏比例，适合抖音 / 快手 / 小红书封面与手机壁纸。"
+     },
+     {
+      "value": "4:3",
+      "label": "4:3 横版",
+      "description": "传统横版比例，适合演示文稿、传统照片构图。"
+     },
+     {
+      "value": "3:4",
+      "label": "3:4 竖版",
+      "description": "传统竖版比例，适合竖版海报、杂志内页。"
+     },
+     {
+      "value": "3:2",
+      "label": "3:2 横版",
+      "description": "相机常用横版比例，适合摄影、风景类横图。"
+     },
+     {
+      "value": "2:3",
+      "label": "2:3 竖版",
+      "description": "相机常用竖版比例，适合人像、竖版海报。"
+     },
+     {
+      "value": "5:4",
+      "label": "5:4 横版",
+      "description": "接近方形的横版比例，适合横版相框、印刷品。"
+     },
+     {
+      "value": "4:5",
+      "label": "4:5 竖版",
+      "description": "接近方形的竖版比例，适合小红书、Instagram 等社媒竖图。"
+     },
+     {
+      "value": "2:1",
+      "label": "2:1 超宽横版",
+      "description": "超宽横版，适合 360° VR 全景图、超宽横幅。"
+     },
+     {
+      "value": "1:2",
+      "label": "1:2 超长竖版",
+      "description": "超长竖版，适合竖版长图、H5 长屏。"
+     },
+     {
+      "value": "21:9",
+      "label": "21:9 影院宽幅",
+      "description": "电影级超宽画幅，适合宽景、横向叙事画面。"
+     },
+     {
+      "value": "9:21",
+      "label": "9:21 超长竖幅",
+      "description": "超长竖幅，适合手机全屏长图、竖版信息流长海报。"
+     },
+     {
+      "value": "custom",
+      "label": "自定义比例",
+      "description": "输入 1:3~3:1 之间的任意比例（如 7:3），可与 1K / 2K / 4K 分辨率同时使用，按所选分辨率计费。"
+     }
+    ]
+   },
+   {
+    "name": "resolution",
+    "label": "分辨率",
+    "type": "select",
+    "required": false,
+    "description": "出图清晰度档位：1K 约 100 万像素、2K 约 400 万像素、4K 最高 3840×2160。选「自适应」时交给模型决定尺寸（此时比例也会变为自适应）；比例为自适应而分辨率未指定时按 1K 出图。",
+    "options": [
+     {
+      "value": "auto",
+      "label": "自适应",
+      "description": "由模型自动决定输出尺寸（选中后比例也会变为自适应）。"
+     },
+     {
+      "value": "1K",
+      "label": "1K",
+      "description": "约 100 万像素（如 1024×1024、1280×720），生成快，日常出图与预览够用。"
+     },
+     {
+      "value": "2K",
+      "label": "2K",
+      "description": "约 400 万像素（如 2048×2048、2560×1440），画面更清晰，适合高清细节场景。"
+     },
+     {
+      "value": "4K",
+      "label": "4K",
+      "description": "最高 3840×2160 级超高清，适合大图印刷、大屏展示；耗时更长。"
+     }
+    ]
+   },
+   {
+    "name": "quality",
+    "label": "画质",
+    "type": "select",
+    "required": false,
+    "description": "渲染质量档位，越高细节越足、耗时越长。推荐 auto 由模型自动选择；部分渠道不支持画质参数或不支持超高 / 极致档，届时按渠道默认画质出图。",
+    "options": [
+     {
+      "value": "auto",
+      "label": "自适应",
+      "description": "由模型根据提示词自动选择合适的质量档位（默认推荐）。"
+     },
+     {
+      "value": "low",
+      "label": "低",
+      "description": "低质量档：生成最快、消耗最少，适合快速预览。"
+     },
+     {
+      "value": "medium",
+      "label": "中",
+      "description": "中等质量档：速度与画质平衡，适合大多数日常出图。"
+     },
+     {
+      "value": "high",
+      "label": "高",
+      "description": "高质量档：细节丰富、清晰度高，适合成品图。"
+     },
+     {
+      "value": "xhigh",
+      "label": "超高",
+      "description": "超高质量档（2.5 新增）：比「高」更精细，适合海报、印刷级素材；耗时更长。"
+     },
+     {
+      "value": "max",
+      "label": "极致",
+      "description": "极致质量档（2.5 新增）：细节拉满、耗时最长、消耗最多，追求极限画质时使用。"
+     }
+    ]
+   },
+   {
+    "name": "background",
+    "label": "透明背景",
+    "type": "select",
+    "required": false,
+    "description": "是否输出透明底 PNG。默认不透明；选择透明背景时会自动以 PNG 格式输出，并只派给支持透明底的渠道。",
+    "options": [
+     {
+      "value": "opaque",
+      "label": "不要透明背景",
+      "description": "生成实色（不透明）背景的图片，默认选项。"
+     },
+     {
+      "value": "transparent",
+      "label": "要透明背景",
+      "description": "输出透明底 PNG，适合贴纸、Logo、电商抠图素材；只派给支持透明底的渠道。"
+     },
+     {
+      "value": "auto",
+      "label": "自适应",
+      "description": "由模型根据提示词自行决定是否使用透明背景。"
+     }
+    ]
+   },
+   {
+    "name": "size",
+    "label": "自定义尺寸",
+    "type": "input",
+    "required": false,
+    "description": "高级用法：直接传官方格式的像素尺寸（如 1536x864）或 auto，宽高须为 16 的倍数、比例在 1:3~3:1 之间、总像素 655360~8294400。传了本参数时忽略「图片比例」与「分辨率」两项。⚠️ 本参数只接受像素写法或 auto：清晰度档位请传「分辨率」resolution 参数，画面比例请传「图片比例」aspect_ratio 参数。误填进来的 1K / 2K / 4K 会按 resolution 处理，但须同时传具体的 aspect_ratio，否则返回 400；误填的 16:9 / 9:16 等比例会按 aspect_ratio 处理；与显式传的 resolution / aspect_ratio 不一致时返回 400。"
+   }
+  ]
+ },
+ "banana-2.1": {
+  "name": "banana-2.1",
+  "display_name": "纳米香蕉 2.1 按次",
+  "type": "image",
+  "description": "纳米香蕉系列新一代高速图像模型，按次计费。支持 1K/2K/4K 输出、最多14张参考图、多种画面比例，支持联网搜索与图片搜索接地、思考等级控制，适合电商素材、社媒图片等大批量快速出图场景。",
+  "input_hint": "描述你想要生成的图片内容，支持上传参考图片进行图生图，最多14张",
+  "tags": [
+   "文生图",
+   "图生图",
+   "4k",
+   "高清",
+   "香蕉",
+   "联网搜索"
+  ],
+  "params": [
+   {
+    "name": "prompt",
+    "label": "提示词",
+    "type": "textarea",
+    "required": true,
+    "description": "描述你想要生成的图片内容"
+   },
+   {
+    "name": "images",
+    "label": "参考图片",
+    "type": "upload",
+    "required": false,
+    "description": "上传1-14张图片作为参考。"
+   },
+   {
+    "name": "aspectRatio",
+    "label": "图片比例",
+    "type": "select",
+    "required": true,
+    "description": "图片的宽高比例",
+    "options": [
+     {
+      "value": "auto",
+      "label": "自动",
+      "description": "根据你的参考图，自动选择合适尺寸"
+     },
+     {
+      "value": "1:1",
+      "label": "1:1 正方形",
+      "description": "1024x1024 / 2048x2048 / 4096x4096"
+     },
+     {
+      "value": "2:3",
+      "label": "2:3 竖版",
+      "description": "848x1264 / 1696x2528 / 3392x5056"
+     },
+     {
+      "value": "3:2",
+      "label": "3:2 横版",
+      "description": "1264x848 / 2528x1696 / 5056x3392"
+     },
+     {
+      "value": "3:4",
+      "label": "3:4 竖版",
+      "description": "896x1200 / 1792x2400 / 3584x4800"
+     },
+     {
+      "value": "4:3",
+      "label": "4:3 横版",
+      "description": "1200x896 / 2400x1792 / 4800x3584"
+     },
+     {
+      "value": "4:5",
+      "label": "4:5 竖版",
+      "description": "928x1152 / 1856x2304 / 3712x4608"
+     },
+     {
+      "value": "5:4",
+      "label": "5:4 横版",
+      "description": "1152x928 / 2304x1856 / 4608x3712"
+     },
+     {
+      "value": "9:16",
+      "label": "9:16 竖屏",
+      "description": "768x1376 / 1536x2752 / 3072x5504"
+     },
+     {
+      "value": "16:9",
+      "label": "16:9 横屏",
+      "description": "1376x768 / 2752x1536 / 5504x3072"
+     },
+     {
+      "value": "21:9",
+      "label": "21:9 超宽屏",
+      "description": "1584x672 / 3168x1344 / 6336x2688"
+     },
+     {
+      "value": "1:4",
+      "label": "1:4 超竖版",
+      "description": "512x2048 / 1024x4096 / 2048x8192"
+     },
+     {
+      "value": "4:1",
+      "label": "4:1 超横版",
+      "description": "2048x512 / 4096x1024 / 8192x2048"
+     },
+     {
+      "value": "1:8",
+      "label": "1:8 极竖版",
+      "description": "384x3072 / 768x6144 / 1536x12288"
+     },
+     {
+      "value": "8:1",
+      "label": "8:1 极横版",
+      "description": "3072x384 / 6144x768 / 12288x1536"
+     }
+    ]
+   },
+   {
+    "name": "imageSize",
+    "label": "分辨率",
+    "type": "select",
+    "required": true,
+    "description": "图片清晰度",
+    "options": [
+     {
+      "value": "1K",
+      "label": "1K 标清",
+      "description": "约1024像素，生成速度快"
+     },
+     {
+      "value": "2K",
+      "label": "2K 高清",
+      "description": "约2048像素，画质清晰"
+     },
+     {
+      "value": "4K",
+      "label": "4K 超清",
+      "description": "约4096像素，超高画质"
+     }
+    ]
+   },
+   {
+    "name": "web_search",
+    "label": "联网搜索",
+    "type": "switch",
+    "required": false,
+    "description": "开启联网搜索，可获取实时信息和图片搜索生成图片",
+    "options": [
+     {
+      "value": "true",
+      "label": "联网搜索",
+      "description": "开启联网搜索，可获取实时信息和图片搜索生成图片"
+     },
+     {
+      "value": "false",
+      "label": "关闭搜索",
+      "description": "关闭联网搜索"
+     }
+    ]
+   },
+   {
+    "name": "thinkingLevel",
+    "label": "思考等级",
+    "type": "select",
+    "required": false,
+    "description": "控制模型思考深度",
+    "options": [
+     {
+      "value": "minimal",
+      "label": "快速",
+      "description": "速度快，适合日常使用"
+     },
+     {
+      "value": "high",
+      "label": "深度",
+      "description": "思考更多，画质更好但更慢"
+     }
+    ]
+   }
+  ]
+ },
+ "tt-image-2": {
+  "name": "tt-image-2",
+  "display_name": "TT Image 2",
+  "type": "image",
+  "description": "新一代旗舰图像模型，发布即登顶全球盲测榜双第一（文生图与图片编辑）。语义理解、文字渲染与复杂排版全面升级：图表、信息图、漫画、高文字密度海报一次成型；图像输入默认高保真处理，人脸、Logo与产品细节在多轮编辑中稳定不走样。支持多图参考合成、提示词引导的局部编辑与自定义分辨率（最高可至2K以上），官方推荐用于客户可见的生产级素材，是追求首轮成功率的不二之选。",
+  "input_hint": "推荐用《主体 + 场景 + 风格 + 光线 + 氛围》的结构写提示词；可上传 1~10 张参考图用于图生图 / 局部编辑 / 多图融合。\n温馨提示：本模型性价比高，选择 2K/4K 出图时分辨率、比例偶尔无法精准命中，属该模型已知特性；如需稳定精准的高清出图，建议选择「TT Image 2 官转」（价格更高，分辨率更有保障）。\n关于透明背景：本模型不支持 background / output_format / alpha 等透明通道参数，上游已于 2026-07 停止支持透明背景输出。即使在提示词中要求“透明底/PNG 透明通道”，返回结果也可能是真实 RGBA，也可能把灰白棋盘格直接栅格化为不透明像素，结果不可控；如需透明底请自行后处理抠图。",
+  "tags": [
+   "文生图",
+   "图生图"
+  ],
+  "params": [
+   {
+    "name": "prompt",
+    "label": "提示词",
+    "type": "textarea",
+    "required": true,
+    "description": "描述你想要生成的图片内容"
+   },
+   {
+    "name": "images",
+    "label": "参考图片",
+    "type": "upload",
+    "required": false,
+    "description": "上传1-14张图片作为参考。支持公网直链URL或 data:<mime>;base64,<数据> 内联传入"
+   },
+   {
+    "name": "size",
+    "label": "图片比例",
+    "type": "select",
+    "required": true,
+    "description": "生成图片的尺寸。取值须为分辨率写法（如 1920x1088）或 auto，只传比例\"16:9\"或档位\"1K\"/\"2K\"会报400（选项 label 括号里的比例仅为说明，要提交的是其 value）。推荐 auto。除下方列出的常用尺寸外，也可自传符合官方规则的任意尺寸：宽高均为16的倍数、宽高比1:3～3:1之间、总像素655360～8294400、且单边不超过3840，例如 1024x1360、1792x1024。⚠️ 重要：size 实际只稳定决定【宽高比档位】，不保证输出像素与所选值一致——部分价格优先渠道会降采样，例如选 1920x1088(16:9) 常返回 1280x720、选 1024x1536(2:3) 常返回 832x1248，比例正确但分辨率更低。请勿按 size 预判真实像素，应以下载到的图片实际宽高为准。追求稳定精准的高清效果，请选择「TT Image 2 官转」。另注：渠道分组按名称后缀标注能力档位，分组名带 -1K 的仅支持1K档（总像素≤约260万），提交2K/4K尺寸时会自动剔除这类分组；自定义渠道策略下若白名单只含 -1K 分组会返回403。",
+    "options": [
+     {
+      "value": "auto",
+      "label": "自适应",
+      "description": "根据参考图自动选择合适尺寸"
+     },
+     {
+      "value": "1024x1024",
+      "label": "正方形 (1:1)",
+      "description": "1:1 正方形，1024×1024 像素，适合头像、电商主图、社交媒体配图。"
+     },
+     {
+      "value": "1024x1536",
+      "label": "竖版 (2:3)",
+      "description": "2:3 竖版，1024×1536 像素，适合竖版人像、海报。"
+     },
+     {
+      "value": "1536x1024",
+      "label": "横版 (3:2)",
+      "description": "3:2 横版，1536×1024 像素，适合横构图风景、照片。"
+     },
+     {
+      "value": "960x1280",
+      "label": "竖版 (3:4)",
+      "description": "3:4 竖版，960×1280 像素，适合竖版海报、杂志内页。"
+     },
+     {
+      "value": "1280x960",
+      "label": "横版 (4:3)",
+      "description": "4:3 横版，1280×960 像素，适合演示文稿、传统照片。"
+     },
+     {
+      "value": "1088x1920",
+      "label": "竖版 (9:16)",
+      "description": "9:16 竖版，1088×1920 像素，适合抖音、短视频、手机竖屏海报。"
+     },
+     {
+      "value": "1920x1088",
+      "label": "横版 (16:9)",
+      "description": "16:9 横版，1920×1088 像素，适合宽屏壁纸、视频封面、网页横幅。"
+     },
+     {
+      "value": "1024x1280",
+      "label": "竖版 (4:5)",
+      "description": "4:5 竖版，1024×1280 像素，适合小红书、Instagram 等社媒竖图。"
+     },
+     {
+      "value": "1280x1024",
+      "label": "横版 (5:4)",
+      "description": "5:4 横版，1280×1024 像素，适合社媒横图、相框打印。"
+     },
+     {
+      "value": "960x1920",
+      "label": "竖版 (1:2)",
+      "description": "1:2 竖版，960×1920 像素，适合竖版长图、H5 长屏。"
+     },
+     {
+      "value": "1920x960",
+      "label": "横版 (2:1)",
+      "description": "2:1 横版，1920×960 像素，适合 360° VR 全景图、超宽横幅。"
+     },
+     {
+      "value": "2048x2048",
+      "label": "2K 正方形 (1:1)",
+      "description": "1:1 正方形 2K，2048×2048 像素，画面更清晰，适合需要高清细节的场景。部分渠道可能无法精准命中 2K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "2048x3072",
+      "label": "2K 竖版 (2:3)",
+      "description": "2:3 竖版 2K，2048×3072 像素，竖版高清人像、海报。部分渠道可能无法精准命中 2K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "3072x2048",
+      "label": "2K 横版 (3:2)",
+      "description": "3:2 横版 2K，3072×2048 像素，横构图高清风景、照片。部分渠道可能无法精准命中 2K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "1920x2560",
+      "label": "2K 竖版 (3:4)",
+      "description": "3:4 竖版 2K，1920×2560 像素，竖版高清海报、杂志内页。部分渠道可能无法精准命中 2K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "2560x1920",
+      "label": "2K 横版 (4:3)",
+      "description": "4:3 横版 2K，2560×1920 像素，高清演示文稿、传统照片。部分渠道可能无法精准命中 2K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "1440x2560",
+      "label": "2K 竖版 (9:16)",
+      "description": "9:16 竖版 2K，1440×2560 像素，竖屏高清，适合抖音、短视频。部分渠道可能无法精准命中 2K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "2560x1440",
+      "label": "2K 横版 (16:9)",
+      "description": "16:9 横版 2K，2560×1440 像素，横屏高清，适合宽屏壁纸、视频封面。部分渠道可能无法精准命中 2K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "2048x2560",
+      "label": "2K 竖版 (4:5)",
+      "description": "4:5 竖版 2K，2048×2560 像素，高清社媒竖图。部分渠道可能无法精准命中 2K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "2560x2048",
+      "label": "2K 横版 (5:4)",
+      "description": "5:4 横版 2K，2560×2048 像素，高清社媒横图、相框打印。部分渠道可能无法精准命中 2K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "1280x2560",
+      "label": "2K 竖版 (1:2)",
+      "description": "1:2 竖版 2K，1280×2560 像素，高清竖版长图、H5 长屏。部分渠道可能无法精准命中 2K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "2560x1280",
+      "label": "2K 横版 (2:1)",
+      "description": "2:1 横版 2K，2560×1280 像素，高清 360° VR 全景图、超宽横幅。部分渠道可能无法精准命中 2K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "2880x2880",
+      "label": "4K 正方形 (1:1)",
+      "description": "1:1 正方形 4K，2880×2880 像素，超高清细节，适合大图印刷、精细成品。部分渠道可能不支持 4K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "2304x3456",
+      "label": "4K 竖版 (2:3)",
+      "description": "2:3 竖版 4K，2304×3456 像素，超高清竖版人像、海报。部分渠道可能不支持 4K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "3456x2304",
+      "label": "4K 横版 (3:2)",
+      "description": "3:2 横版 4K，3456×2304 像素，超高清横构图风景、照片。部分渠道可能不支持 4K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "2400x3200",
+      "label": "4K 竖版 (3:4)",
+      "description": "3:4 竖版 4K，2400×3200 像素，超高清竖版海报、杂志内页。部分渠道可能不支持 4K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "3200x2400",
+      "label": "4K 横版 (4:3)",
+      "description": "4:3 横版 4K，3200×2400 像素，超高清演示、传统照片。部分渠道可能不支持 4K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "2160x3840",
+      "label": "4K 竖版 (9:16)",
+      "description": "9:16 竖版 4K，2160×3840 像素，超高清竖屏，适合手机壁纸、竖屏大屏。部分渠道可能不支持 4K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "3840x2160",
+      "label": "4K 横版 (16:9)",
+      "description": "16:9 横版 4K，3840×2160 像素，主流 4K 超高清横屏，适合大屏壁纸、视频封面。部分渠道可能不支持 4K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "2560x3200",
+      "label": "4K 竖版 (4:5)",
+      "description": "4:5 竖版 4K，2560×3200 像素，超高清社媒竖图。部分渠道可能不支持 4K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "3200x2560",
+      "label": "4K 横版 (5:4)",
+      "description": "5:4 横版 4K，3200×2560 像素，超高清社媒横图、相框打印。部分渠道可能不支持 4K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "1920x3840",
+      "label": "4K 竖版 (1:2)",
+      "description": "1:2 竖版 4K，1920×3840 像素，超高清竖版长图、H5 长屏。部分渠道可能不支持 4K，追求稳定精准可选「TT Image 2 官转」。"
+     },
+     {
+      "value": "3840x1920",
+      "label": "4K 横版 (2:1)",
+      "description": "2:1 横版 4K，3840×1920 像素，超高清 360° VR 全景图，VR 全景推荐档位。部分渠道可能不支持 4K，追求稳定精准可选「TT Image 2 官转」。"
+     }
+    ]
+   },
+   {
+    "name": "quality",
+    "label": "图片质量",
+    "type": "select",
+    "required": false,
+    "description": "生成图片的质量。推荐 auto，由模型自动决定。",
+    "options": [
+     {
+      "value": "auto",
+      "label": "自适应",
+      "description": "由模型根据提示词自动选择合适的质量档位（默认推荐），无需手动指定。"
+     },
+     {
+      "value": "high",
+      "label": "高",
+      "description": "高质量档：画面细节最丰富、清晰度最高，生成耗时与消耗也最多，适合追求精细效果的成品图。"
+     },
+     {
+      "value": "medium",
+      "label": "中",
+      "description": "中等质量档：在速度与画质之间取得平衡，适合大多数日常出图需求。"
+     },
+     {
+      "value": "low",
+      "label": "低",
+      "description": "低质量档：生成最快、消耗最少，画面细节较粗，适合快速预览或对清晰度要求不高的场景。"
+     }
+    ]
+   }
+  ]
+ },
+ "seedance-2.0-anci": {
+  "name": "seedance-2.0-anci",
+  "display_name": "SD 2.0 按次",
+  "type": "video",
+  "description": "字节跳动即梦 Seedance 2.0 的按次计费分支（参考生模式）：上传 0~9 张参考图，模型融合人物、场景与构图生成新视频；一口价按条扣费，与时长无关；快速 / 标准两档速度版本，720p 高清，4~15 秒时长，五种画幅，自动生成有声视频。生成失败自动退款。",
+  "input_hint": "上传 0~9 张参考图 + 描述词，生成风格一致的视频（不传图即文生视频）\nPrompt 必填；按次一口价，与时长无关（4~15 秒）\n720p；快速 / 标准两档；画幅 16:9 / 9:16 / 1:1 / 4:3 / 3:4\n图片需公网可访问直链；生成失败自动退款",
+  "tags": [
+   "文生视频",
+   "参考生视频",
+   "多图参考",
+   "有声视频",
+   "按次计费",
+   "720p",
+   "即梦"
+  ],
+  "params": [
+   {
+    "name": "mode",
+    "label": "生成模式",
+    "type": "segment",
+    "required": false,
+    "description": "参考生：上传 0～9 张参考图作为参考素材生成；不传参考图即按提示词文生视频。",
+    "options": [
+     {
+      "value": "cankaosheng",
+      "label": "参考生"
+     }
+    ]
+   },
+   {
+    "name": "version",
+    "label": "速度版本",
+    "type": "select",
+    "required": true,
+    "description": "快速版对应 seedance-2.0-fast，标准版对应 seedance-2.0；两档都只出 720p，按次一口价，标准版单价更高。",
+    "options": [
+     {
+      "value": "快速",
+      "label": "快速",
+      "description": "快速版，出片更快、单价更低；720p，适合批量出片与快速试稿。"
+     },
+     {
+      "value": "标准",
+      "label": "标准",
+      "description": "标准版，画质更高、细节更稳；720p。选 15 秒时上游实际成片约 10 秒，费用仍按一口价。"
+     }
+    ]
+   },
+   {
+    "name": "duration",
+    "label": "视频时长",
+    "type": "select",
+    "required": true,
+    "description": "4~15 的整数秒，按次计费不随时长变化；标准版选 15 秒时上游实际成片约 10 秒，费用仍按一口价扣除。",
+    "options": [
+     {
+      "value": "4",
+      "label": "4秒",
+      "description": "生成约 4 秒视频，按次一口价。"
+     },
+     {
+      "value": "5",
+      "label": "5秒",
+      "description": "生成约 5 秒视频，按次一口价。"
+     },
+     {
+      "value": "6",
+      "label": "6秒",
+      "description": "生成约 6 秒视频，按次一口价。"
+     },
+     {
+      "value": "7",
+      "label": "7秒",
+      "description": "生成约 7 秒视频，按次一口价。"
+     },
+     {
+      "value": "8",
+      "label": "8秒",
+      "description": "生成约 8 秒视频，按次一口价。"
+     },
+     {
+      "value": "9",
+      "label": "9秒",
+      "description": "生成约 9 秒视频，按次一口价。"
+     },
+     {
+      "value": "10",
+      "label": "10秒",
+      "description": "生成约 10 秒视频，按次一口价。"
+     },
+     {
+      "value": "11",
+      "label": "11秒",
+      "description": "生成约 11 秒视频，按次一口价。"
+     },
+     {
+      "value": "12",
+      "label": "12秒",
+      "description": "生成约 12 秒视频，按次一口价。"
+     },
+     {
+      "value": "13",
+      "label": "13秒",
+      "description": "生成约 13 秒视频，按次一口价。"
+     },
+     {
+      "value": "14",
+      "label": "14秒",
+      "description": "生成约 14 秒视频，按次一口价。"
+     },
+     {
+      "value": "15",
+      "label": "15秒",
+      "description": "生成约 15 秒视频，按次一口价；标准版选 15 秒时实际成片约 10 秒。"
+     }
+    ]
+   },
+   {
+    "name": "aspect_ratio",
+    "label": "宽高比",
+    "type": "select",
+    "required": false,
+    "description": "输出画幅：16:9 / 9:16 / 1:1 / 4:3 / 3:4。",
+    "options": [
+     {
+      "value": "16:9",
+      "label": "16:9",
+      "description": "横屏宽屏，适合横屏视频投递。"
+     },
+     {
+      "value": "9:16",
+      "label": "9:16",
+      "description": "竖屏，适合抖音/快手/小红书。"
+     },
+     {
+      "value": "1:1",
+      "label": "1:1",
+      "description": "方形画面，适合社交媒体信息流。"
+     },
+     {
+      "value": "4:3",
+      "label": "4:3",
+      "description": "传统比例，适合复古、纪录片风格。"
+     },
+     {
+      "value": "3:4",
+      "label": "3:4",
+      "description": "小竖屏，适合卡片式展示。"
+     }
+    ]
+   },
+   {
+    "name": "resolution",
+    "label": "视频分辨率",
+    "type": "select",
+    "required": true,
+    "description": "本模型仅输出 720p。",
+    "options": [
+     {
+      "value": "720p",
+      "label": "720p",
+      "description": "720p 高清，本模型唯一输出档位。"
+     }
+    ]
+   },
+   {
+    "name": "images",
+    "label": "参考图片",
+    "type": "upload",
+    "required": false,
+    "description": "参考生模式的参考图片，0～9 张，必须是公网可访问的图片 URL；不传即文生视频。不支持首尾帧。"
+   }
+  ]
+ },
+ "seedance-2.5-guanfang-anmiao": {
+  "name": "seedance-2.5-guanfang-anmiao",
+  "display_name": "SD 2.5 满血版 按秒",
+  "type": "video",
+  "description": "SD 2.5 满血版的按秒计费版：能力、素材、画质与按 token 版完全一致，价格按「时长秒数 × 档位单价」下单即扣清、不多退少补，预算一目了然；带参考视频时 MC-S 线路按「时长秒数 × 档位单价 × 1.5」计、参考视频不另收，官方特惠线路按含视频档位单价并另收参考视频费（参考视频不足成片时长 2/3 的按 2/3 计）。需明确选择视频时长（4～30 秒）。上传真人照片、真人视频无需人像认证。",
+  "input_hint": "描述你想要的画面、运动和氛围，并明确选择视频时长（按秒计费；带参考视频时 MC-S 线路整单按成片秒数 × 1.5 计，官方特惠线路按含视频价并另收参考视频费）。首尾帧模式上传 1～2 张图，参考生模式可上传参考图 / 参考视频 / 参考音频（可仅传音频）；什么都不传就是文生视频。",
+  "tags": [
+   "全形态一体",
+   "免人像认证",
+   "按秒计费",
+   "30秒长视频",
+   "首尾帧",
+   "参考生视频",
+   "视频编辑",
+   "视频延长",
+   "有声视频"
+  ],
+  "params": [
+   {
+    "name": "mode",
+    "label": "生成模式",
+    "type": "segment",
+    "required": false,
+    "description": "首尾帧：上传 1～2 张图作为首帧 / 尾帧生成；参考生：上传参考图 / 参考视频 / 参考音频作为参考素材生成（支持仅传音频）。两种模式都可以不传任何素材，直接按提示词文生视频。",
+    "options": [
+     {
+      "value": "shouweizhen",
+      "label": "首尾帧"
+     },
+     {
+      "value": "cankaosheng",
+      "label": "参考生"
+     }
+    ]
+   },
+   {
+    "name": "_quan_neng_mode",
+    "label": "参考方式",
+    "type": "select",
+    "required": false,
+    "description": "带参考视频时选择用法：「全能参考」默认生成；「延长视频」上传 1～10 个片段，按提示词前向 / 后向延长或串联。两种方式上游调用一致，仅校验与引导不同。",
+    "options": [
+     {
+      "value": "quan_neng",
+      "label": "全能参考",
+      "description": "默认生成：参考图 / 参考视频 / 参考音频任意组合。"
+     },
+     {
+      "value": "extend",
+      "label": "延长视频",
+      "description": "上传 1～10 个视频片段，提示词描述衔接关系：前向 / 后向延长或多段串联。仅接受视频，不带参考图 / 参考音频。"
+     }
+    ]
+   },
+   {
+    "name": "duration",
+    "label": "视频时长",
+    "type": "select",
+    "required": true,
+    "description": "对应火山 duration：4~30 的整数秒；按 token 版可传 -1 智能时长（按 30 秒预扣，结算多退少补），按秒版必须明确整数。",
+    "options": [
+     {
+      "value": "4",
+      "label": "4秒",
+      "description": "生成约 4 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "5",
+      "label": "5秒",
+      "description": "生成约 5 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "6",
+      "label": "6秒",
+      "description": "生成约 6 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "7",
+      "label": "7秒",
+      "description": "生成约 7 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "8",
+      "label": "8秒",
+      "description": "生成约 8 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "9",
+      "label": "9秒",
+      "description": "生成约 9 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "10",
+      "label": "10秒",
+      "description": "生成约 10 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "11",
+      "label": "11秒",
+      "description": "生成约 11 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "12",
+      "label": "12秒",
+      "description": "生成约 12 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "13",
+      "label": "13秒",
+      "description": "生成约 13 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "14",
+      "label": "14秒",
+      "description": "生成约 14 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "15",
+      "label": "15秒",
+      "description": "生成约 15 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "16",
+      "label": "16秒",
+      "description": "生成约 16 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "17",
+      "label": "17秒",
+      "description": "生成约 17 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "18",
+      "label": "18秒",
+      "description": "生成约 18 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "19",
+      "label": "19秒",
+      "description": "生成约 19 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "20",
+      "label": "20秒",
+      "description": "生成约 20 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "21",
+      "label": "21秒",
+      "description": "生成约 21 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "22",
+      "label": "22秒",
+      "description": "生成约 22 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "23",
+      "label": "23秒",
+      "description": "生成约 23 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "24",
+      "label": "24秒",
+      "description": "生成约 24 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "25",
+      "label": "25秒",
+      "description": "生成约 25 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "26",
+      "label": "26秒",
+      "description": "生成约 26 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "27",
+      "label": "27秒",
+      "description": "生成约 27 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "28",
+      "label": "28秒",
+      "description": "生成约 28 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "29",
+      "label": "29秒",
+      "description": "生成约 29 秒视频。时长越长费用越高。"
+     },
+     {
+      "value": "30",
+      "label": "30秒",
+      "description": "生成约 30 秒视频。时长越长费用越高。"
+     }
+    ]
+   },
+   {
+    "name": "aspect_ratio",
+    "label": "宽高比",
+    "type": "select",
+    "required": false,
+    "description": "对应火山 ratio：adaptive / 16:9 / 4:3 / 1:1 / 3:4 / 9:16 / 21:9。首帧 / 首尾帧、编辑 / 延长任务仅支持 adaptive。",
+    "options": [
+     {
+      "value": "adaptive",
+      "label": "自适应",
+      "description": "默认推荐。参考生任务贴合素材自动选比例；编辑/延长视频任务必须选此项（自动跟随原片比例，选具体比例会报错）。"
+     },
+     {
+      "value": "16:9",
+      "label": "16:9",
+      "description": "横屏宽屏，适合横屏视频投递。"
+     },
+     {
+      "value": "4:3",
+      "label": "4:3",
+      "description": "传统比例，适合复古、纪录片风格。"
+     },
+     {
+      "value": "1:1",
+      "label": "1:1",
+      "description": "方形画面，适合社交媒体信息流。"
+     },
+     {
+      "value": "3:4",
+      "label": "3:4",
+      "description": "小竖屏，适合卡片式展示。"
+     },
+     {
+      "value": "9:16",
+      "label": "9:16",
+      "description": "竖屏，适合抖音/快手/小红书。"
+     },
+     {
+      "value": "21:9",
+      "label": "21:9",
+      "description": "电影超宽屏，适合宽景叙事。"
+     }
+    ]
+   },
+   {
+    "name": "resolution",
+    "label": "视频分辨率",
+    "type": "select",
+    "required": true,
+    "description": "对应火山 resolution：480p / 720p / 1080p（无 4k），按所选档位计费。",
+    "options": [
+     {
+      "value": "480p",
+      "label": "480p"
+     },
+     {
+      "value": "720p",
+      "label": "720p",
+      "description": "主流高清。token 消耗约为 480p 的 2.2 倍，适合正式出片。"
+     },
+     {
+      "value": "1080p",
+      "label": "1080p",
+      "description": "高清档，仅部分渠道支持"
+     }
+    ]
+   },
+   {
+    "name": "images",
+    "label": "首尾帧",
+    "type": "upload",
+    "required": false,
+    "description": "首尾帧模式（mode=shouweizhen）的图片：第 1 张为首帧、第 2 张为尾帧，最多 2 张，不传图即文生视频。开放 API 未传 mode 时按张数推断：1 张首帧、2 张首尾帧、3～30 张按参考生处理（对应火山 role=first_frame / last_frame / reference_image）。"
+   },
+   {
+    "name": "image_url",
+    "label": "参考图片",
+    "type": "upload",
+    "required": false,
+    "description": "参考生模式（mode=cankaosheng）的参考图片，0～30 张，可与参考视频、参考音频任意组合（对应火山 role=reference_image）。"
+   },
+   {
+    "name": "video_url",
+    "label": "参考视频",
+    "type": "upload",
+    "required": false,
+    "description": "参考生模式的参考视频，0～10 个、单个 2～30 秒、总时长不超过 30 秒（对应火山 role=reference_video）；带参考视频的任务按「含视频输入」单价计费。"
+   },
+   {
+    "name": "audio_url",
+    "label": "参考音频",
+    "type": "upload",
+    "required": false,
+    "description": "参考生模式的参考音频，0～10 段、总时长不超过 30 秒（对应火山 role=reference_audio）；支持仅传音频生成。"
+   },
+   {
+    "name": "web_search",
+    "label": "联网搜索",
+    "type": "select",
+    "required": false,
+    "description": "对应火山 tools: [{\"type\": \"web_search\"}]，开启后模型按提示词自主决定是否联网搜索实时信息。",
+    "options": [
+     {
+      "value": "false",
+      "label": "关闭",
+      "description": "默认。不联网，仅根据提示词和参考素材生成，速度更快。"
+     },
+     {
+      "value": "true",
+      "label": "开启",
+      "description": "模型会根据提示词自动联网搜索实时信息（如天气、新闻、商品）用于生成视频，可能增加等待时间。"
+     }
+    ]
+   }
+  ]
+ },
+ "gk-video-3.5": {
+  "name": "gk-video-3.5",
+  "display_name": "GK-video-3.5",
+  "type": "video",
+  "description": "GK-video-3.5 视频模型，专注图生视频：上传一张首帧参考图即可生成 1~15 秒高质量短视频，自带音频，画面比例与时长灵活可控。响应快、成本低，适合用一张图快速生成有声短视频。",
+  "input_hint": "上传一张首帧参考图，描述你想要的画面动作与运镜（本模型仅支持图生视频，必须上传一张首帧参考图）",
+  "tags": [
+   "图生视频",
+   "首帧参考图",
+   "自带音频",
+   "1~15秒",
+   "高清"
+  ],
+  "params": [
+   {
+    "name": "prompt",
+    "label": "提示词",
+    "type": "textarea",
+    "required": true,
+    "description": "描述你想要生成的视频画面与动作"
+   },
+   {
+    "name": "images",
+    "label": "首帧参考图",
+    "type": "upload",
+    "required": true,
+    "description": "上传1张图片作为视频首帧（本模型仅支持图生视频，必须上传）。"
+   },
+   {
+    "name": "aspect_ratio",
+    "label": "画面比例",
+    "type": "radio",
+    "required": true,
+    "description": "选择视频的宽高比",
+    "options": [
+     {
+      "value": "16:9",
+      "label": "横屏 16:9",
+      "description": "横屏，适合 B站 等平台"
+     },
+     {
+      "value": "9:16",
+      "label": "竖屏 9:16",
+      "description": "竖屏，适合抖音等短视频"
+     },
+     {
+      "value": "1:1",
+      "label": "方形 1:1",
+      "description": "方形，适合头像等场景"
+     },
+     {
+      "value": "3:2",
+      "label": "横屏 3:2",
+      "description": "横屏构图"
+     },
+     {
+      "value": "2:3",
+      "label": "竖屏 2:3",
+      "description": "竖屏构图"
+     }
+    ]
+   },
+   {
+    "name": "resolution",
+    "label": "画质",
+    "type": "radio",
+    "required": true,
+    "description": "选择视频画质",
+    "options": [
+     {
+      "value": "720p",
+      "label": "高清 720p",
+      "description": "高清画质"
+     },
+     {
+      "value": "480p",
+      "label": "标清 480p",
+      "description": "标清画质，出片更快"
+     }
+    ]
+   },
+   {
+    "name": "duration",
+    "label": "视频时长",
+    "type": "select",
+    "required": true,
+    "description": "选择视频时长（1~15秒，按秒计费）",
+    "options": [
+     {
+      "value": "1",
+      "label": "1秒",
+      "description": "生成1秒视频"
+     },
+     {
+      "value": "2",
+      "label": "2秒",
+      "description": "生成2秒视频"
+     },
+     {
+      "value": "3",
+      "label": "3秒",
+      "description": "生成3秒视频"
+     },
+     {
+      "value": "4",
+      "label": "4秒",
+      "description": "生成4秒视频"
+     },
+     {
+      "value": "5",
+      "label": "5秒",
+      "description": "生成5秒视频"
+     },
+     {
+      "value": "6",
+      "label": "6秒",
+      "description": "生成6秒视频"
+     },
+     {
+      "value": "7",
+      "label": "7秒",
+      "description": "生成7秒视频"
+     },
+     {
+      "value": "8",
+      "label": "8秒",
+      "description": "生成8秒视频"
+     },
+     {
+      "value": "9",
+      "label": "9秒",
+      "description": "生成9秒视频"
+     },
+     {
+      "value": "10",
+      "label": "10秒",
+      "description": "生成10秒视频"
+     },
+     {
+      "value": "11",
+      "label": "11秒",
+      "description": "生成11秒视频"
+     },
+     {
+      "value": "12",
+      "label": "12秒",
+      "description": "生成12秒视频"
+     },
+     {
+      "value": "13",
+      "label": "13秒",
+      "description": "生成13秒视频"
+     },
+     {
+      "value": "14",
+      "label": "14秒",
+      "description": "生成14秒视频"
+     },
+     {
+      "value": "15",
+      "label": "15秒",
+      "description": "生成15秒视频"
+     }
+    ]
+   }
+  ]
+ },
+ "viduq4-preview": {
+  "name": "viduq4-preview",
+  "display_name": "Vidu Q4 Preview",
+  "type": "video",
+  "description": "Vidu Q4 Preview 新一代视频模型抢先体验版，一张卡两种玩法：参考生（默认）上传 1-15 张参考图生成主体一致的视频，可另附最多 3 段 mp3 参考音频，支持 16:9/9:16/1:1/4:3/3:4 五种比例；首帧模式上传 1 张图作为首帧，成片比例自动跟随图片。音视频同步直出，支持 540P/720P/1080P/2K/4K 与 3-16 秒时长，按秒计费；2K/4K 输出为 H.265 编码。",
+  "input_hint": "默认参考生：上传 1-15 张参考图（可附 0-3 段 mp3 参考音频），AI 以图中主体为参考生成有声视频；切换到首帧：上传 1 张图作为首帧，成片比例跟随图片。支持 540P～4K，时长 3-16 秒，按秒计费。",
+  "tags": [
+   "参考生视频",
+   "图生视频",
+   "首帧",
+   "多图参考",
+   "参考音频",
+   "有声视频",
+   "4K",
+   "2K"
+  ],
+  "params": [
+   {
+    "name": "mode",
+    "label": "生成模式",
+    "type": "segment",
+    "required": false,
+    "description": "参考生（默认）：上传 1～15 张参考图，可附 0～3 段 mp3 参考音频；首帧：上传 1 张图作为视频首帧，成片比例跟随图片。",
+    "options": [
+     {
+      "value": "cankaosheng",
+      "label": "参考生"
+     },
+     {
+      "value": "shouweizhen",
+      "label": "首帧"
+     }
+    ]
+   },
+   {
+    "name": "images",
+    "label": "首帧参考图",
+    "type": "upload",
+    "required": false,
+    "description": "首帧模式：上传 1 张图片作为视频首帧，视频宽高比自动跟随图片。"
+   },
+   {
+    "name": "image_url",
+    "label": "参考图片",
+    "type": "upload",
+    "required": false,
+    "description": "上传1-15张参考图片，AI 以图中主体为参考生成视频。"
+   },
+   {
+    "name": "audio_url",
+    "label": "参考音频",
+    "type": "upload",
+    "required": false,
+    "description": "可选，0-3 段 mp3 参考音频，需搭配参考图片使用。"
+   },
+   {
+    "name": "resolution",
+    "label": "分辨率",
+    "type": "radio",
+    "required": true,
+    "description": "视频分辨率",
+    "options": [
+     {
+      "value": "540p",
+      "label": "540P",
+      "description": "540P 标清画质，本模型最低档分辨率，出片更快、单价最低；适合预览或对清晰度要求不高的场景。（默认）"
+     },
+     {
+      "value": "720p",
+      "label": "720P",
+      "description": "720P 高清画质，清晰度优于540P，单价约为540P的2.1倍，适合日常分享。"
+     },
+     {
+      "value": "1080p",
+      "label": "1080P",
+      "description": "1080P 全高清画质，画面更细腻，单价约为540P的2.7倍，适合正式成片。"
+     },
+     {
+      "value": "2K",
+      "label": "2K",
+      "description": "2K 超清画质，H.265 编码，单价约为540P的4.2倍；部分旧浏览器或设备可能无法直接预览。"
+     },
+     {
+      "value": "4K",
+      "label": "4K",
+      "description": "4K 超高清画质，本模型最高清晰度，H.265 编码，单价约为540P的8.7倍；部分旧浏览器或设备可能无法直接预览。"
+     }
+    ]
+   },
+   {
+    "name": "duration",
+    "label": "时长",
+    "type": "select",
+    "required": true,
+    "description": "视频时长（秒），按秒计费",
+    "options": [
+     {
+      "value": "3",
+      "label": "3秒",
+      "description": "生成约3秒的视频，本模型最短时长，按秒计费，时长越长费用越高。（默认）"
+     },
+     {
+      "value": "4",
+      "label": "4秒",
+      "description": "生成约4秒的视频，按秒计费，时长越长费用越高。"
+     },
+     {
+      "value": "5",
+      "label": "5秒",
+      "description": "生成约5秒的视频，按秒计费，时长越长费用越高。"
+     },
+     {
+      "value": "6",
+      "label": "6秒",
+      "description": "生成约6秒的视频，按秒计费，时长越长费用越高。"
+     },
+     {
+      "value": "7",
+      "label": "7秒",
+      "description": "生成约7秒的视频，按秒计费，时长越长费用越高。"
+     },
+     {
+      "value": "8",
+      "label": "8秒",
+      "description": "生成约8秒的视频，按秒计费，时长越长费用越高。"
+     },
+     {
+      "value": "9",
+      "label": "9秒",
+      "description": "生成约9秒的视频，按秒计费，时长越长费用越高。"
+     },
+     {
+      "value": "10",
+      "label": "10秒",
+      "description": "生成约10秒的视频，按秒计费，时长越长费用越高。"
+     },
+     {
+      "value": "11",
+      "label": "11秒",
+      "description": "生成约11秒的视频，按秒计费，时长越长费用越高。"
+     },
+     {
+      "value": "12",
+      "label": "12秒",
+      "description": "生成约12秒的视频，按秒计费，时长越长费用越高。"
+     },
+     {
+      "value": "13",
+      "label": "13秒",
+      "description": "生成约13秒的视频，按秒计费，时长越长费用越高。"
+     },
+     {
+      "value": "14",
+      "label": "14秒",
+      "description": "生成约14秒的视频，按秒计费，时长越长费用越高。"
+     },
+     {
+      "value": "15",
+      "label": "15秒",
+      "description": "生成约15秒的视频，按秒计费，时长越长费用越高。"
+     },
+     {
+      "value": "16",
+      "label": "16秒",
+      "description": "生成约16秒的视频，本模型最长时长，按秒计费，时长越长费用越高。"
+     }
+    ]
+   },
+   {
+    "name": "aspect_ratio",
+    "label": "宽高比",
+    "type": "radio",
+    "required": false,
+    "description": "视频画面比例",
+    "options": [
+     {
+      "value": "16:9",
+      "label": "16:9",
+      "description": "16:9 横屏宽屏比例，适合电脑、电视及 B站、YouTube 等横屏平台。"
+     },
+     {
+      "value": "9:16",
+      "label": "9:16",
+      "description": "9:16 竖屏比例，适合抖音、快手、小红书等手机短视频平台。（默认）"
+     },
+     {
+      "value": "3:4",
+      "label": "3:4",
+      "description": "3:4 竖向比例，适合卡片式竖屏展示。"
+     },
+     {
+      "value": "4:3",
+      "label": "4:3",
+      "description": "4:3 传统横屏比例，适合复古、纪录片风格。"
+     },
+     {
+      "value": "1:1",
+      "label": "1:1",
+      "description": "1:1 正方形比例，适合社交媒体信息流、头像等场景。"
+     }
+    ]
+   }
+  ]
+ },
+ "minimax-h3": {
+  "name": "minimax-h3",
+  "display_name": "MiniMax H3",
+  "type": "video",
+  "description": "MiniMax 海螺 H3 全形态一体：文生 / 首尾帧 / 参考生 / 全能参考（图+视频+音频）一个模型全包，直出 2K 有声视频，4～15 秒灵活时长。按秒计费、下单即扣清。",
+  "input_hint": "描述你想要的画面、运动和氛围。首尾帧模式上传 1～2 张图；参考生模式可上传参考图（1～9 张）/ 参考视频 / 参考音频任意组合；什么都不传就是文生视频。",
+  "tags": [
+   "全形态一体",
+   "文生视频",
+   "首尾帧",
+   "参考生视频",
+   "多模态参考",
+   "2K高清",
+   "有声视频"
+  ],
+  "params": [
+   {
+    "name": "mode",
+    "label": "生成模式",
+    "type": "segment",
+    "required": false,
+    "description": "首尾帧：上传 1～2 张图作首帧 / 尾帧；参考生：参考图（1～9 张）/ 参考视频（最多 3 个）/ 参考音频（最多 3 段）任意组合。两种模式都可以不传素材，直接按提示词文生视频。",
+    "options": [
+     {
+      "value": "shouweizhen",
+      "label": "首尾帧"
+     },
+     {
+      "value": "cankaosheng",
+      "label": "参考生"
+     },
+     {
+      "value": "quannengcankao",
+      "label": "全能参考"
+     }
+    ]
+   },
+   {
+    "name": "images",
+    "label": "首尾帧",
+    "type": "upload",
+    "required": false,
+    "description": "首尾帧模式的图片：第 1 张首帧、第 2 张尾帧，最多 2 张。"
+   },
+   {
+    "name": "image_url",
+    "label": "参考图片",
+    "type": "upload",
+    "required": false,
+    "description": "参考生模式的参考图，0～9 张，可与参考视频 / 参考音频任意组合。"
+   },
+   {
+    "name": "video_url",
+    "label": "参考视频",
+    "type": "upload",
+    "required": false,
+    "description": "参考生模式的参考视频，0～3 个；按其时长额外按秒计费。"
+   },
+   {
+    "name": "audio_url",
+    "label": "参考音频",
+    "type": "upload",
+    "required": false,
+    "description": "参考生模式的参考音频，0～3 段；音频免费。仅作节奏 / 风格参考，不会把原音频写入成片，也不做对口型——成片音轨由模型自行生成。"
+   },
+   {
+    "name": "duration",
+    "label": "视频时长",
+    "type": "select",
+    "required": true,
+    "description": "生成视频时长（秒），4~15 的整数；按秒计费，时长越长费用越高。参考视频的时长会按输出分辨率单价额外计费。",
+    "options": [
+     {
+      "value": "4",
+      "label": "4秒",
+      "description": "生成约 4 秒视频，按秒计费。"
+     },
+     {
+      "value": "5",
+      "label": "5秒",
+      "description": "生成约 5 秒视频，按秒计费。"
+     },
+     {
+      "value": "6",
+      "label": "6秒",
+      "description": "生成约 6 秒视频，按秒计费。"
+     },
+     {
+      "value": "7",
+      "label": "7秒",
+      "description": "生成约 7 秒视频，按秒计费。"
+     },
+     {
+      "value": "8",
+      "label": "8秒",
+      "description": "生成约 8 秒视频，按秒计费。"
+     },
+     {
+      "value": "9",
+      "label": "9秒",
+      "description": "生成约 9 秒视频，按秒计费。"
+     },
+     {
+      "value": "10",
+      "label": "10秒",
+      "description": "生成约 10 秒视频，按秒计费。"
+     },
+     {
+      "value": "11",
+      "label": "11秒",
+      "description": "生成约 11 秒视频，按秒计费。"
+     },
+     {
+      "value": "12",
+      "label": "12秒",
+      "description": "生成约 12 秒视频，按秒计费。"
+     },
+     {
+      "value": "13",
+      "label": "13秒",
+      "description": "生成约 13 秒视频，按秒计费。"
+     },
+     {
+      "value": "14",
+      "label": "14秒",
+      "description": "生成约 14 秒视频，按秒计费。"
+     },
+     {
+      "value": "15",
+      "label": "15秒",
+      "description": "生成约 15 秒视频，按秒计费。"
+     }
+    ]
+   },
+   {
+    "name": "aspect_ratio",
+    "label": "宽高比",
+    "type": "select",
+    "required": false,
+    "description": "生成视频的画面比例，默认自适应（由参考素材自动选择最佳比例），也可指定具体比例。",
+    "options": [
+     {
+      "value": "adaptive",
+      "label": "自适应",
+      "description": "默认推荐。由参考素材自动选择最佳比例。"
+     },
+     {
+      "value": "16:9",
+      "label": "16:9",
+      "description": "横屏宽屏，适合横屏视频投递。"
+     },
+     {
+      "value": "9:16",
+      "label": "9:16",
+      "description": "竖屏，适合抖音/快手/小红书。"
+     },
+     {
+      "value": "1:1",
+      "label": "1:1",
+      "description": "方形画面，适合社交媒体信息流。"
+     },
+     {
+      "value": "4:3",
+      "label": "4:3",
+      "description": "传统比例，适合复古、纪录片风格。"
+     },
+     {
+      "value": "3:4",
+      "label": "3:4",
+      "description": "小竖屏，适合卡片式展示。"
+     },
+     {
+      "value": "21:9",
+      "label": "21:9",
+      "description": "电影超宽屏，适合宽景叙事。"
+     }
+    ]
+   },
+   {
+    "name": "resolution",
+    "label": "视频分辨率",
+    "type": "select",
+    "required": true,
+    "description": "输出分辨率：768P 性价比高出片快；2K 超高清单价更高（含参考视频时输入秒数也按此单价计）。",
+    "options": [
+     {
+      "value": "768P",
+      "label": "768P",
+      "description": "高清 768P，性价比首选，出片快、单价低；含参考视频时输入秒数也按此档单价计。"
+     },
+     {
+      "value": "1080P",
+      "label": "1080P"
+     },
+     {
+      "value": "2K",
+      "label": "2K",
+      "description": "2K 超高清直出，单价更高（约为 768P 的 1.6 倍）；含参考视频时输入秒数也按此档单价计。建议先用 768P 试稿。"
+     },
+     {
+      "value": "4K",
+      "label": "4K"
+     }
+    ]
+   }
+  ]
+ },
+ "suno-v6": {
+  "name": "suno-v6",
+  "display_name": "Suno 音乐生成 6",
+  "type": "audio",
+  "description": "Suno V6 音乐生成模型，提供 V6 / V6 Wild / V6 Mini 三个版本，输入歌词与风格描述即可生成完整人声歌曲或纯音乐，一次生成 2 首供挑选。",
+  "input_hint": "歌词与风格描述至少填一个，歌词留空则 AI 按风格描述自动作词。API 调用：音乐风格描述传顶层 prompt，完整歌词传 params.lyrics",
+  "tags": [
+   "音乐生成",
+   "AI作曲",
+   "纯音乐",
+   "Suno V6"
+  ],
+  "params": [
+   {
+    "name": "mv",
+    "label": "模型版本",
+    "type": "select",
+    "required": false,
+    "description": "Suno V6 版本：v6 标准版（默认）、v6-wild 创意奔放版、v6-mini 轻量快速版",
+    "options": [
+     {
+      "value": "v6",
+      "label": "V6（推荐）",
+      "description": "标准版，人声、编曲、质感最均衡"
+     },
+     {
+      "value": "v6-wild",
+      "label": "V6 Wild",
+      "description": "创意更奔放，风格更大胆多变"
+     },
+     {
+      "value": "v6-mini",
+      "label": "V6 Mini",
+      "description": "轻量版，出曲更快"
+     }
+    ]
+   },
+   {
+    "name": "lyrics",
+    "label": "完整歌词",
+    "type": "textarea",
+    "required": false,
+    "description": "完整歌词文本（支持 [Verse]/[Chorus] 等段落标记）。填写后按自定义模式生成：lyrics 作为歌词、顶层 prompt 作为音乐风格/流派描述；留空则 AI 根据 prompt 自动作词。与 prompt 至少填一个；纯音乐模式（make_instrumental=instrumental）只需 prompt。长度上限：顶层 prompt（风格描述）建议不超过 1000 字符、lyrics 不超过 5000 字符，超出会被上游以「输入参数无效」拒绝（已退款）"
+   },
+   {
+    "name": "make_instrumental",
+    "label": "生成模式",
+    "type": "select",
+    "required": false,
+    "description": "默认生成人声歌曲，开启后生成无人声纯器乐音乐",
+    "options": [
+     {
+      "value": "song",
+      "label": "歌曲模式",
+      "description": "生成含人声的完整歌曲"
+     },
+     {
+      "value": "instrumental",
+      "label": "纯音乐模式",
+      "description": "生成无人声纯器乐音乐"
+     }
+    ]
+   },
+   {
+    "name": "vocal_gender",
+    "label": "声音性别",
+    "type": "select",
+    "required": false,
+    "description": "控制演唱者性别：自动由 AI 决定，或指定男声/女声",
+    "options": [
+     {
+      "value": "auto",
+      "label": "自动",
+      "description": "AI 自行选择"
+     },
+     {
+      "value": "m",
+      "label": "男声",
+      "description": "指定男声演唱"
+     },
+     {
+      "value": "f",
+      "label": "女声",
+      "description": "指定女声演唱"
+     }
+    ]
+   }
+  ]
+ },
+ "doubao-tts-2.0": {
+  "name": "doubao-tts-2.0",
+  "display_name": "豆包 语音合成 2.0",
+  "type": "audio",
+  "description": "火山引擎豆包语音合成2.0，支持上百种精品音色，支持多情感、多语种、长文本合成（最大10万字符），音质自然流畅。",
+  "input_hint": "输入文本内容，选择音色即可生成语音",
+  "tags": [
+   "文字转语音",
+   "多音色",
+   "多情感",
+   "多语言"
+  ],
+  "params": [
+   {
+    "name": "voice_id",
+    "label": "音色",
+    "type": "input",
+    "required": false,
+    "description": "音色标识，选择音色的唯一入口。通过 GET /v1/skills/voices?model=doubao-tts-2.0 查询可用的豆包预置音色（voice_id 字段）；不传时使用默认音色 zh_female_vv_uranus_bigtts"
+   },
+   {
+    "name": "speech_rate",
+    "label": "语速",
+    "type": "select",
+    "required": false,
+    "description": "控制语音播放速度",
+    "options": [
+     {
+      "value": "-50",
+      "label": "0.5x",
+      "description": "极慢"
+     },
+     {
+      "value": "-25",
+      "label": "0.75x",
+      "description": "较慢"
+     },
+     {
+      "value": "0",
+      "label": "1.0x",
+      "description": "正常语速，默认取值"
+     },
+     {
+      "value": "25",
+      "label": "1.25x",
+      "description": "较快"
+     },
+     {
+      "value": "50",
+      "label": "1.5x",
+      "description": "快速"
+     },
+     {
+      "value": "100",
+      "label": "2.0x",
+      "description": "极快"
+     }
+    ]
+   },
+   {
+    "name": "emotion",
+    "label": "情感",
+    "type": "select",
+    "required": false,
+    "description": "控制语音的情感表达",
+    "options": [
+     {
+      "value": "auto",
+      "label": "自动",
+      "description": "由模型根据文本内容自动识别并匹配合适的情感，选择后无需设置情绪强度，为默认取值。"
+     },
+     {
+      "value": "happy",
+      "label": "开心",
+      "description": "开心语气"
+     },
+     {
+      "value": "sad",
+      "label": "悲伤",
+      "description": "悲伤语气"
+     },
+     {
+      "value": "angry",
+      "label": "愤怒",
+      "description": "愤怒语气"
+     },
+     {
+      "value": "fearful",
+      "label": "害怕",
+      "description": "害怕语气"
+     },
+     {
+      "value": "surprised",
+      "label": "惊讶",
+      "description": "惊讶语气"
+     },
+     {
+      "value": "calm",
+      "label": "平静",
+      "description": "平静语气"
+     }
+    ]
+   },
+   {
+    "name": "emotion_scale",
+    "label": "情绪强度",
+    "type": "select",
+    "required": false,
+    "description": "情绪值越大，情感越明显",
+    "options": [
+     {
+      "value": "1",
+      "label": "1",
+      "description": "情绪强度最低，情感表达克制内敛，仅作轻微点缀；需先选择具体情感后才生效。"
+     },
+     {
+      "value": "2",
+      "label": "2",
+      "description": "情绪强度较低，情感表达自然含蓄；需先选择具体情感后才生效。"
+     },
+     {
+      "value": "3",
+      "label": "3",
+      "description": "情绪强度适中，情感表达较为平衡；需先选择具体情感后才生效。"
+     },
+     {
+      "value": "4",
+      "label": "4",
+      "description": "情绪强度较高，情感表达明显，为默认取值；需先选择具体情感后才生效。"
+     },
+     {
+      "value": "5",
+      "label": "5",
+      "description": "情绪强度最高，情感表达最为强烈饱满，适合需要强烈感染力的场景；需先选择具体情感后才生效。"
+     }
+    ]
+   },
+   {
+    "name": "format",
+    "label": "音频格式",
+    "type": "select",
+    "required": false,
+    "description": "输出音频的编码格式",
+    "options": [
+     {
+      "value": "mp3",
+      "label": "MP3",
+      "description": "通用有损压缩格式，文件体积小、兼容性最好，适合网页播放与分享，为默认格式。"
+     },
+     {
+      "value": "wav",
+      "label": "WAV",
+      "description": "无损 PCM 格式，音质最佳但文件体积最大，适合后期剪辑或对音质要求较高的专业场景。"
+     },
+     {
+      "value": "ogg_opus",
+      "label": "OGG",
+      "description": "采用 Opus 编码，在低码率下仍能保持清晰音质且体积小，适合语音流传输或带宽受限的场景。"
+     }
+    ]
+   }
+  ]
+ },
+ "music-2.5+": {
+  "name": "music-2.5+",
+  "display_name": "海螺 音乐生成 2.5+",
+  "type": "audio",
+  "description": "MiniMax 海螺音乐生成增强模型，支持歌曲生成和纯音乐生成两种模式。歌曲模式下输入歌词和风格描述生成完整歌曲；纯音乐模式下仅需风格描述即可生成无人声的纯器乐音乐。支持 AI 歌词创作、14+ 曲式结构标签精准控制、多风格混合，带来专业级编曲混音。",
+  "input_hint": "左边输入歌词，右边输入音乐风格描述（纯音乐模式下仅需右边输入风格描述）",
+  "tags": [
+   "音乐生成",
+   "歌词生成",
+   "AI作曲",
+   "纯音乐"
+  ],
+  "params": [
+   {
+    "name": "lyrics",
+    "label": "歌词",
+    "type": "textarea",
+    "required": false,
+    "description": "歌曲模式下的歌词文本，当 is_instrumental 不为 instrumental 时必填"
+   },
+   {
+    "name": "is_instrumental",
+    "label": "生成模式",
+    "type": "select",
+    "required": false,
+    "description": "选择歌曲模式或纯音乐模式",
+    "options": [
+     {
+      "value": "song",
+      "label": "歌曲模式",
+      "description": "有人声演唱的完整歌曲，需在 lyrics 中传入歌词"
+     },
+     {
+      "value": "instrumental",
+      "label": "纯音乐模式",
+      "description": "无人声纯器乐，lyrics 可不传"
+     }
+    ]
+   },
+   {
+    "name": "sample_rate",
+    "label": "采样率",
+    "type": "select",
+    "required": false,
+    "description": "音频采样率，越高音质越好",
+    "options": [
+     {
+      "value": "16000",
+      "label": "16000",
+      "description": "采样率 16000 Hz：最低档，音质较粗、文件最小。"
+     },
+     {
+      "value": "24000",
+      "label": "24000",
+      "description": "采样率 24000 Hz：较低档，音质一般。"
+     },
+     {
+      "value": "32000",
+      "label": "32000",
+      "description": "采样率 32000 Hz：中等采样率，音质与体积较平衡。"
+     },
+     {
+      "value": "44100",
+      "label": "44100",
+      "description": "采样率 44100 Hz（CD 品质）：最高档，音质最好（默认）。"
+     }
+    ]
+   },
+   {
+    "name": "bitrate",
+    "label": "比特率",
+    "type": "select",
+    "required": false,
+    "description": "音频比特率，越高音质越好",
+    "options": [
+     {
+      "value": "32000",
+      "label": "32000",
+      "description": "音频比特率 32 kbps：码率最低、文件最小，音质较粗，适合对体积敏感的场景。"
+     },
+     {
+      "value": "64000",
+      "label": "64000",
+      "description": "音频比特率 64 kbps：码率较低、文件较小，音质一般。"
+     },
+     {
+      "value": "128000",
+      "label": "128000",
+      "description": "音频比特率 128 kbps：标准品质，体积与音质较平衡。"
+     },
+     {
+      "value": "256000",
+      "label": "256000",
+      "description": "音频比特率 256 kbps：超高品质，音质最好、文件最大（默认）。"
+     }
+    ]
+   }
+  ]
+ }
+}

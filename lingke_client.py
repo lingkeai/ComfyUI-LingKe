@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 import time
 import urllib.error
@@ -7,7 +8,7 @@ import urllib.request
 
 from .lingke_config import CACHE_PATH, load_config
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 USER_AGENT = f"ComfyUI-LingKe/{VERSION}"
 
 POLL_INTERVAL = 5          # 开放 API 文档建议的轮询间隔（秒）
@@ -28,12 +29,13 @@ class LingKeError(Exception):
     pass
 
 
+_logger = logging.getLogger("LingKe")
+
+
 def log(msg):
-    # Windows 控制台常是 GBK，接口文案里的 ⚠ 等符号直接 print 会抛 UnicodeEncodeError 打断节点
-    try:
-        print(f"[LingKe] {msg}")
-    except UnicodeEncodeError:
-        print(f"[LingKe] {msg}".encode("ascii", "backslashreplace").decode("ascii"))
+    # 走 ComfyUI 已配置的 logging：print 在 stdout 重定向时会被缓冲看不到；
+    # 且 GBK 控制台编码失败时 logging 只报 handler 错误，不会像 print 那样抛异常打断节点
+    _logger.info(f"[LingKe] {msg}")
 
 
 def _err_msg(obj):
@@ -134,7 +136,12 @@ class LingKeClient:
             deadline = time.time() + POLL_INTERVAL
             while time.time() < deadline:
                 if check_interrupt:
-                    check_interrupt()
+                    try:
+                        check_interrupt()
+                    except BaseException:
+                        log(f"stopped waiting; cloud task {task_id} keeps running and is still billed, "
+                            f"check the result on the website / 已停止等待，云端任务 {task_id} 仍会继续并计费，可到网站查看结果")
+                        raise
                 time.sleep(0.5)
 
     def chat(self, model, messages, timeout=600):
