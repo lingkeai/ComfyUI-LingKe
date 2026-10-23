@@ -11,4 +11,3 @@ Repository = "https://github.com/lingkeai/ComfyUI-LingKe"
 [tool.comfy]
 PublisherId = "lingkeai"
 DisplayName = "LingKe AI API Nodes"
-Icon = ""
