@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-lingke"
+description = "LingKe AI (灵客AI) API nodes: call cloud image / video / audio / chat models directly from ComfyUI workflows, no GPU required."
+version = "0.1.0"
+license = { file = "LICENSE" }
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/lingkeai/ComfyUI-LingKe"
+
+[tool.comfy]
+PublisherId = "lingkeai"
+DisplayName = "LingKe AI API Nodes"
+Icon = ""

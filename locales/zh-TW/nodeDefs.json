@@ -1,0 +1,63 @@
+{
+  "LingKeImageGen": {
+    "display_name": "靈客AI 生圖",
+    "inputs": {
+      "model": { "name": "模型" },
+      "prompt": { "name": "提示詞" },
+      "params_json": { "name": "參數JSON" },
+      "seed": { "name": "種子" },
+      "images": { "name": "參考圖" },
+      "images_param": { "name": "參考圖參數名" }
+    },
+    "outputs": { "0": { "name": "圖像" }, "1": { "name": "結果網址" }, "2": { "name": "任務ID" } }
+  },
+  "LingKeVideoGen": {
+    "display_name": "靈客AI 生影片",
+    "inputs": {
+      "model": { "name": "模型" },
+      "prompt": { "name": "提示詞" },
+      "params_json": { "name": "參數JSON" },
+      "seed": { "name": "種子" },
+      "image": { "name": "首幀/參考圖" },
+      "image_param": { "name": "首幀參數名" },
+      "end_image": { "name": "尾幀" },
+      "end_image_param": { "name": "尾幀參數名" }
+    },
+    "outputs": { "0": { "name": "影片" }, "1": { "name": "結果網址" }, "2": { "name": "任務ID" } }
+  },
+  "LingKeAudioGen": {
+    "display_name": "靈客AI 生音訊",
+    "inputs": {
+      "model": { "name": "模型" },
+      "prompt": { "name": "提示詞" },
+      "params_json": { "name": "參數JSON" },
+      "seed": { "name": "種子" },
+      "audio": { "name": "參考音訊" },
+      "audio_param": { "name": "參考音訊參數名" }
+    },
+    "outputs": { "0": { "name": "音訊" }, "1": { "name": "結果網址" }, "2": { "name": "任務ID" } }
+  },
+  "LingKeChat": {
+    "display_name": "靈客AI 對話模型",
+    "inputs": {
+      "model": { "name": "模型" },
+      "system": { "name": "系統提示詞" },
+      "prompt": { "name": "提示詞" },
+      "seed": { "name": "種子" }
+    },
+    "outputs": { "0": { "name": "文字" } }
+  },
+  "LingKeModelParams": {
+    "display_name": "靈客AI 模型參數",
+    "inputs": {
+      "media_type": { "name": "類型" },
+      "model": { "name": "模型名" }
+    },
+    "outputs": { "0": { "name": "參數說明" } }
+  },
+  "LingKeBalance": {
+    "display_name": "靈客AI 餘額",
+    "inputs": { "seed": { "name": "種子" } },
+    "outputs": { "0": { "name": "餘額" } }
+  }
+}

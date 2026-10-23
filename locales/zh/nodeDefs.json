@@ -1,0 +1,63 @@
+{
+  "LingKeImageGen": {
+    "display_name": "灵客AI 生图",
+    "inputs": {
+      "model": { "name": "模型" },
+      "prompt": { "name": "提示词" },
+      "params_json": { "name": "参数JSON" },
+      "seed": { "name": "种子" },
+      "images": { "name": "参考图" },
+      "images_param": { "name": "参考图参数名" }
+    },
+    "outputs": { "0": { "name": "图像" }, "1": { "name": "结果地址" }, "2": { "name": "任务ID" } }
+  },
+  "LingKeVideoGen": {
+    "display_name": "灵客AI 生视频",
+    "inputs": {
+      "model": { "name": "模型" },
+      "prompt": { "name": "提示词" },
+      "params_json": { "name": "参数JSON" },
+      "seed": { "name": "种子" },
+      "image": { "name": "首帧/参考图" },
+      "image_param": { "name": "首帧参数名" },
+      "end_image": { "name": "尾帧" },
+      "end_image_param": { "name": "尾帧参数名" }
+    },
+    "outputs": { "0": { "name": "视频" }, "1": { "name": "结果地址" }, "2": { "name": "任务ID" } }
+  },
+  "LingKeAudioGen": {
+    "display_name": "灵客AI 生音频",
+    "inputs": {
+      "model": { "name": "模型" },
+      "prompt": { "name": "提示词" },
+      "params_json": { "name": "参数JSON" },
+      "seed": { "name": "种子" },
+      "audio": { "name": "参考音频" },
+      "audio_param": { "name": "参考音频参数名" }
+    },
+    "outputs": { "0": { "name": "音频" }, "1": { "name": "结果地址" }, "2": { "name": "任务ID" } }
+  },
+  "LingKeChat": {
+    "display_name": "灵客AI 对话模型",
+    "inputs": {
+      "model": { "name": "模型" },
+      "system": { "name": "系统提示词" },
+      "prompt": { "name": "提示词" },
+      "seed": { "name": "种子" }
+    },
+    "outputs": { "0": { "name": "文本" } }
+  },
+  "LingKeModelParams": {
+    "display_name": "灵客AI 模型参数",
+    "inputs": {
+      "media_type": { "name": "类型" },
+      "model": { "name": "模型名" }
+    },
+    "outputs": { "0": { "name": "参数说明" } }
+  },
+  "LingKeBalance": {
+    "display_name": "灵客AI 余额",
+    "inputs": { "seed": { "name": "种子" } },
+    "outputs": { "0": { "name": "余额" } }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "id": "6f1c2a7e-4b1d-4c55-9a51-1a2b3c4d5e01",
+  "revision": 0,
+  "last_node_id": 6,
+  "last_link_id": 5,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LingKeChat",
+      "pos": [100, 200],
+      "size": [420, 260],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "1. Expand prompt / 扩写提示词",
+      "inputs": [],
+      "outputs": [{ "name": "text", "type": "STRING", "links": [1, 2] }],
+      "properties": { "Node name for S&R": "LingKeChat" },
+      "widgets_values": [
+        "gem-3.8-flash",
+        "You expand short ideas into one concise English image prompt. Output the prompt only.",
+        "一只橘猫坐在窗台上看雨",
+        1,
+        "fixed"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "PreviewAny",
+      "pos": [580, 200],
+      "size": [300, 180],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "title": "Expanded prompt / 扩写结果",
+      "inputs": [{ "name": "source", "type": "*", "link": 1 }],
+      "outputs": [],
+      "properties": { "Node name for S&R": "PreviewAny" },
+      "widgets_values": []
+    },
+    {
+      "id": 3,
+      "type": "LingKeImageGen",
+      "pos": [580, 440],
+      "size": [420, 300],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "title": "2. Text to image / 文生图",
+      "inputs": [
+        { "name": "images", "type": "IMAGE", "shape": 7, "link": null },
+        { "name": "prompt", "type": "STRING", "widget": { "name": "prompt" }, "link": 2 }
+      ],
+      "outputs": [
+        { "name": "image", "type": "IMAGE", "links": [3, 4] },
+        { "name": "urls", "type": "STRING", "links": null },
+        { "name": "task_id", "type": "STRING", "links": null }
+      ],
+      "properties": { "Node name for S&R": "LingKeImageGen" },
+      "widgets_values": ["tt-image-2.5", "", "{\"version\": \"flare\"}", 1, "fixed", "auto"]
+    },
+    {
+      "id": 4,
+      "type": "PreviewImage",
+      "pos": [1060, 200],
+      "size": [300, 320],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [{ "name": "images", "type": "IMAGE", "link": 3 }],
+      "outputs": [],
+      "properties": { "Node name for S&R": "PreviewImage" },
+      "widgets_values": []
+    },
+    {
+      "id": 5,
+      "type": "LingKeVideoGen",
+      "pos": [1060, 580],
+      "size": [420, 340],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "title": "3. Image to video / 图生视频",
+      "inputs": [
+        { "name": "image", "type": "IMAGE", "shape": 7, "link": 4 },
+        { "name": "end_image", "type": "IMAGE", "shape": 7, "link": null }
+      ],
+      "outputs": [
+        { "name": "video", "type": "VIDEO", "links": [5] },
+        { "name": "url", "type": "STRING", "links": null },
+        { "name": "task_id", "type": "STRING", "links": null }
+      ],
+      "properties": { "Node name for S&R": "LingKeVideoGen" },
+      "widgets_values": [
+        "gk-video-3.5",
+        "猫咪缓缓转头看向镜头，窗外雨滴滑落",
+        "{\"aspect_ratio\": \"1:1\", \"resolution\": \"480p\", \"duration\": \"3\"}",
+        1,
+        "fixed",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "SaveVideo",
+      "pos": [1540, 200],
+      "size": [320, 420],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [{ "name": "video", "type": "VIDEO", "link": 5 }],
+      "outputs": [],
+      "properties": { "Node name for S&R": "SaveVideo" },
+      "widgets_values": ["lingke_demo", "auto", "auto"]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 0, "STRING"],
+    [2, 1, 0, 3, 1, "STRING"],
+    [3, 3, 0, 4, 0, "IMAGE"],
+    [4, 3, 0, 5, 0, "IMAGE"],
+    [5, 5, 0, 6, 0, "VIDEO"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": { "ds": { "scale": 0.8, "offset": [0, 0] } },
+  "version": 0.4
+}
